@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 800" role="img" aria-labelledby="title desc">
+  <title id="title">Jayesh Jadhav profile placeholder</title>
+  <desc id="desc">Abstract cobalt portrait placeholder with initials JJ and optical wave motifs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efe5cf"/>
+      <stop offset="1" stop-color="#d9e6f7"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#092d68"/>
+      <stop offset="0.55" stop-color="#0d58c4"/>
+      <stop offset="1" stop-color="#79a9eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="800" fill="url(#bg)"/>
+  <g opacity=".16" stroke="#092d68" fill="none">
+    <circle cx="360" cy="338" r="185"/>
+    <circle cx="360" cy="338" r="225"/>
+    <circle cx="360" cy="338" r="265"/>
+  </g>
+  <g opacity=".7" fill="none" stroke="url(#beam)" stroke-width="12">
+    <path d="M-30 570 C110 450 215 680 350 550 S590 440 770 560"/>
+    <path d="M-30 620 C120 500 215 720 350 600 S590 490 770 610" opacity=".45"/>
+  </g>
+  <circle cx="360" cy="318" r="145" fill="#092d68"/>
+  <path d="M150 760c20-190 117-285 210-285s190 95 210 285" fill="#0d58c4"/>
+  <text x="360" y="350" text-anchor="middle" fill="#fffdf7" font-family="Arial, sans-serif" font-size="92" font-weight="700">JJ</text>
+  <text x="360" y="744" text-anchor="middle" fill="#fffdf7" font-family="Arial, sans-serif" font-size="24" letter-spacing="5">PHYSICS · PHOTONICS</text>
+</svg>

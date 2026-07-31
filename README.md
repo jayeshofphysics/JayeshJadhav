@@ -36,12 +36,12 @@ For the About-page portrait, replace the `portrait-art` placeholder in `index.ht
 
 ## CV and thesis downloads
 
-The Research page expects these files:
+The Research page includes:
 
-- `assets/Jayesh_Jadhav_CV.pdf`
-- `assets/Jayesh_Jadhav_MSc_Thesis.pdf`
+- `assets/Jayesh_Jadhav_CV.pdf` — downloadable CV
+- `assets/Jayesh_Jadhav_MSc_Thesis.pdf` — a concise text-only thesis overview prepared for the portfolio
 
-Keep these exact names so the existing download buttons continue to work.
+The overview clearly distinguishes theoretical simulation limits from expected fabricated-device performance. The original submitted thesis—with its complete figures, tables, equations and bibliography—can replace this file later while keeping the same filename.
 
 ## Publish with GitHub Pages
 
@@ -55,5 +55,5 @@ Keep these exact names so the existing download buttons continue to work.
 
 - Replace the CSS portrait and gallery placeholders with your own photographs.
 - Confirm all research dates and wording.
-- Add the current CV and final thesis PDFs.
+- Replace the thesis-overview PDF with the original thesis when ready.
 - Check the mobile layout after adding photographs.

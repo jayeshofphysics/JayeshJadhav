@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+
 :root{
   --bg:#050505;
   --surface:#0d0d0d;
@@ -9,8 +11,8 @@
   --accent-2:#c7ffe5;
   --max:1500px;
   --pad:clamp(22px,4vw,68px);
-  --display:"Arial Narrow","Helvetica Neue",Arial,sans-serif;
-  --body:"Helvetica Neue",Arial,sans-serif;
+  --display: "Barlow Condensed", sans-serif;
+--body: "Inter", sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -55,7 +57,9 @@ main{min-height:100vh}
 .about-editorial-section{min-height:100svh;display:flex;align-items:center;border-bottom:1px solid var(--line);padding:clamp(105px,13vw,190px) 0}
 .about-editorial{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(520px,1.28fr);gap:clamp(70px,11vw,190px);align-items:start;max-width:1280px}
 .about-label{margin:0 0 22px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;font-weight:700}
-.about-quote-column blockquote{margin:0;max-width:430px;font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(2.3rem,4.6vw,5rem);line-height:.88;letter-spacing:-.025em}
+.about-quote-column blockquote {
+  font-family: var(--display);
+  font-weight: 700;
 .about-quote-column cite{display:block;margin-top:10px;font-style:normal;font-size:.56em;line-height:1}
 .about-copy-column{max-width:760px;padding-top:48px;color:#d4d2cc;font-size:clamp(1rem,1.22vw,1.23rem);line-height:1.15}
 .about-copy-column p{margin:0 0 18px}

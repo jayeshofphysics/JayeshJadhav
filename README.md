@@ -1,53 +1,59 @@
-# Jayesh Jadhav – Research Portfolio
+# Jayesh Jadhav — Portfolio
 
-A responsive research portfolio designed for GitHub Pages. The visual direction follows the supplied reference: warm cream background, strong cobalt typography, an asymmetric portrait frame and generous editorial spacing.
+A dark, editorial research portfolio designed for GitHub Pages. The website combines a minimal photography-portfolio aesthetic with an academic structure suited to physics, photonics and nanofabrication applications.
 
-## Files
+## Pages
 
-- `index.html` – main website
-- `assets/css/style.css` – visual design and responsive layout
-- `assets/js/script.js` – mobile menu, scroll highlighting and reveal animation
-- `assets/profile-placeholder.svg` – temporary portrait placeholder
+- `index.html` — About, education, coursework and academic highlights
+- `research.html` — CV, thesis, research experience, projects, skills and awards
+- `hobbies.html` — Photography gallery, fine art, swimming and trekking
+- `contact.html` — Email, LinkedIn, GitHub and phone
+- `404.html` — Custom error page
+- `style.css` — Responsive visual system
+- `app.js` — Mobile navigation, reveal effects and gallery controls
 
-## Add your portrait
+## Add your photographs
 
-1. Add your photograph inside the `assets` folder.
-2. Name it `profile.jpg`.
-3. In `index.html`, replace:
+The initial design uses lightweight CSS-generated placeholders, so the website works without image files.
+
+To add a photograph to the hobbies gallery:
+
+1. Create an `assets/photos` folder.
+2. Add files such as `photo-01.jpg`.
+3. In `hobbies.html`, replace a placeholder such as:
 
 ```html
-<img src="assets/profile-placeholder.svg" alt="Portrait placeholder for Jayesh Jadhav">
+<div class="photo-art p1" data-label="Replace with your photograph 01"></div>
 ```
 
 with:
 
 ```html
-<img src="assets/profile.jpg" alt="Jayesh Janardan Jadhav">
+<img src="assets/photos/photo-01.jpg" alt="A concise description of the photograph">
 ```
 
-A vertical or square image works best.
+For the About-page portrait, replace the `portrait-art` placeholder in `index.html` with an `<img>` element in the same way.
 
-## Add your CV
+## CV and thesis downloads
 
-Place your PDF at `assets/Jayesh_Jadhav_CV.pdf`, then add this button inside the hero actions in `index.html`:
+The Research page includes:
 
-```html
-<a class="button button-secondary" href="assets/Jayesh_Jadhav_CV.pdf" target="_blank">Download CV</a>
-```
+- `assets/Jayesh_Jadhav_CV.pdf` — downloadable CV
+- `assets/Jayesh_Jadhav_MSc_Thesis.pdf` — a concise text-only thesis overview prepared for the portfolio
+
+The overview clearly distinguishes theoretical simulation limits from expected fabricated-device performance. The original submitted thesis—with its complete figures, tables, equations and bibliography—can replace this file later while keeping the same filename.
 
 ## Publish with GitHub Pages
 
-1. Create a new public GitHub repository, for example `jayesh-portfolio`.
-2. Upload all files and folders from this package.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`, then save.
-6. GitHub will show your live website URL after deployment.
+1. Merge the redesign branch into `main`.
+2. Open **Repository Settings → Pages**.
+3. Under **Build and deployment**, select **Deploy from a branch**.
+4. Choose `main` and `/ (root)`.
+5. Save and wait for GitHub Pages to publish the site.
 
-## Recommended edits before publishing
+## Recommended final checks
 
-- Check all dates and research wording.
-- Add your final CV PDF.
-- Replace the placeholder portrait.
-- Add thesis figures or publication links when available.
-- Change the GitHub URL in the contact section if needed.
+- Replace the CSS portrait and gallery placeholders with your own photographs.
+- Confirm all research dates and wording.
+- Replace the thesis-overview PDF with the original thesis when ready.
+- Check the mobile layout after adding photographs.

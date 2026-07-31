@@ -1,0 +1,363 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 3594 >>
+stream
+BT
+/F1 9 Tf
+50 792 Td
+12 TL
+(Jayesh Janardan Jadhav - Curriculum Vitae) Tj
+0 -18 Td
+(Experimental Physics | Photonics | Nanofabrication) Tj
+0 -18 Td
+(JAYESH JANARDAN JADHAV) Tj
+T*
+(Experimental Physics | Photonics | Thin Films | Nanofabrication) Tj
+T*
+(Mumbai, India) Tj
+T*
+(Email: jayesh10042003@gmail.com | IITB: 24n0285@iitb.ac.in) Tj
+T*
+(Phone: +91 90046 94015) Tj
+T*
+(LinkedIn: linkedin.com/in/jayeshjadhaviitbphysics) Tj
+T*
+(GitHub: github.com/jayeshofphysics) Tj
+T*
+() Tj
+T*
+(PROFILE) Tj
+T*
+() Tj
+T*
+(Experimental physicist with experience in thin-film optical design, vacuum deposition,) Tj
+T*
+(spectroscopy and scientific modelling. M.Sc. research at IIT Bombay focused on IZO/Ag/IZO) Tj
+T*
+(transparent conducting multilayers, with an increasing emphasis on photonics and) Tj
+T*
+(light-matter interaction. Incoming Quantum Nanofabrication Researcher in a National Quantum) Tj
+T*
+(Mission nanofabrication laboratory; detailed project assignment is being finalised, with a) Tj
+T*
+(broader direction related to fabrication for quantum-computing hardware.) Tj
+T*
+() Tj
+T*
+(EDUCATION) Tj
+T*
+() Tj
+T*
+(Master of Science in Physics | Indian Institute of Technology Bombay | 2024-2026) Tj
+T*
+(- Thesis: Simulation and Optical Design of Multilayer Transparent Conducting Oxides) Tj
+T*
+(- Research centre: National Centre for Photovoltaic Research and Education \(NCPRE\)) Tj
+T*
+(- Guide: Dr. Dinesh Kabra | Mentor: Mr. Subir Manna) Tj
+T*
+(- Selected coursework: Light-Matter Interaction, Photonics and Engineering, Ultrafast) Tj
+T*
+(Sciences, Quantum Mechanics I and II, Electromagnetic Theory I and II, Statistical Physics,) Tj
+T*
+(Introduction to Condensed Matter Physics, Electronics and Programming Laboratory.) Tj
+T*
+() Tj
+T*
+(Bachelor of Science \(Honours\) in Physics | Lovely Professional University | 2020-2023) Tj
+T*
+(- Selected coursework: Applied Optics, Waves and Optics, Quantum Mechanics, Statistical) Tj
+T*
+(Mechanics, Nuclear and Particle Physics, Mathematical Physics I and II, Analogue and Digital) Tj
+T*
+(Systems.) Tj
+T*
+() Tj
+T*
+(RESEARCH EXPERIENCE) Tj
+T*
+() Tj
+T*
+(Incoming Quantum Nanofabrication Researcher | National Quantum Mission | 2026) Tj
+T*
+(- Joining a nanofabrication laboratory supporting quantum-technology research.) Tj
+T*
+(- Detailed assignment is being finalised; expected direction is fabrication processes for) Tj
+T*
+(quantum-computing hardware.) Tj
+T*
+() Tj
+T*
+(M.Sc. Thesis Research | NCPRE, IIT Bombay | 2024-2026) Tj
+T*
+(Simulation and Optical Design of Multilayer Transparent Conducting Oxides) Tj
+T*
+(- Investigated IZO/Ag/IZO oxide-metal-oxide transparent electrodes for photovoltaic devices.) Tj
+T*
+(- Developed a SETFOS and Python workflow for transmission, reflection, absorption,) Tj
+T*
+(photon-flux and theoretical current calculations.) Tj
+T*
+(- Examined non-bulk optical behaviour in sub-10 nm silver using Drude-based interpretation,) Tj
+T*
+(plasmonic considerations and realistic film-growth constraints.) Tj
+T*
+(- Evaluated optical-electrical trade-offs using sheet resistance and Haacke's figure of) Tj
+T*
+(merit.) Tj
+T*
+(- Treated strong simulated gains as theoretical design limits and analysed why roughness,) Tj
+T*
+(morphology, interfaces and non-uniformity reduce post-fabrication performance.) Tj
+T*
+(- Hands-on exposure: RF magnetron sputtering, metal evaporation, cleanroom processing,) Tj
+T*
+(vacuum handling, UV-Vis-NIR spectroscopy, four-point-probe measurements and profilometry.) Tj
+T*
+() Tj
+T*
+(Summer Practical Training | Bhabha Atomic Research Centre | May-Jul 2025) Tj
+T*
+ET
+BT
+/F1 8 Tf
+520 28 Td
+(Page 1 of 3) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2826 >>
+stream
+BT
+/F1 9 Tf
+50 792 Td
+12 TL
+(Jayesh Janardan Jadhav - Curriculum Vitae) Tj
+0 -18 Td
+0 -4 Td
+(High-Pressure Raman Spectroscopy) Tj
+T*
+(- Investigated Na2Cu2TeO6 under pressures up to 10 GPa using diamond anvil cells and Raman) Tj
+T*
+(spectroscopy.) Tj
+T*
+(- Developed experience with alignment, pressure-dependent measurements and interpretation) Tj
+T*
+(under extreme conditions.) Tj
+T*
+() Tj
+T*
+(Experimental Campaign | INDUS-2 Synchrotron, RRCAT | Jun-Jul 2025) Tj
+T*
+(- Participated as a BARC team member in Beamline 11 extreme-condition X-ray diffraction) Tj
+T*
+(measurements.) Tj
+T*
+(- Collected data across multiple samples and pressure conditions in a coordinated facility) Tj
+T*
+(campaign.) Tj
+T*
+() Tj
+T*
+(SELECTED PROJECTS) Tj
+T*
+() Tj
+T*
+(PANI/Fe3O4 Electromagnetic-Interference Shielding Composite | 2022-2023) Tj
+T*
+(- Synthesised magnetite and an in-situ polyaniline composite.) Tj
+T*
+(- Connected FESEM, XRD and FTIR characterization with vector-network-analyser shielding) Tj
+T*
+(measurements.) Tj
+T*
+() Tj
+T*
+(Microbial Fuel Cell | 2022) Tj
+T*
+(- Supported assembly and chemical preparation for a bio-waste-based microbial fuel-cell) Tj
+T*
+(project exploring hydrogen production.) Tj
+T*
+() Tj
+T*
+(Random Signal Generator without Microprocessor | IIT Bombay | 2024) Tj
+T*
+(- Designed a light-and-sound random signal generator as an electronics course project for) Tj
+T*
+(rural animal deterrence.) Tj
+T*
+() Tj
+T*
+(Scientific Vector Diagrams | 2023) Tj
+T*
+(- Created scientific diagrams for colleagues' thesis projects using Adobe Illustrator and) Tj
+T*
+(Affinity Designer.) Tj
+T*
+() Tj
+T*
+(IIT Bombay M.Sc. Physics Fresher Guide | 2026) Tj
+T*
+(- Designed a digital guide for incoming students, combining information architecture, web) Tj
+T*
+(design and student coordination.) Tj
+T*
+() Tj
+T*
+(TECHNICAL SKILLS) Tj
+T*
+() Tj
+T*
+(Fabrication and laboratory: RF magnetron sputtering, thermal/metal evaporation, cleanroom) Tj
+T*
+(workflow, vacuum handling, diamond anvil cells.) Tj
+T*
+(Characterization: UV-Vis-NIR spectroscopy, Raman spectroscopy, four-point probe,) Tj
+T*
+(profilometry, synchrotron XRD exposure.) Tj
+T*
+(Modelling and computation: SETFOS, multilayer optical analysis, Drude-model interpretation,) Tj
+T*
+(AM1.5G photon-flux calculations, Python.) Tj
+T*
+(Design and communication: Adobe Illustrator, Affinity Designer, scientific diagrams,) Tj
+T*
+(technical writing and presentations.) Tj
+T*
+() Tj
+T*
+(LEADERSHIP) Tj
+T*
+() Tj
+T*
+(M.Sc. Representative | IIT Bombay | 2025-2026) Tj
+T*
+(- Represented and coordinated two M.Sc. Physics batches totalling approximately 120) Tj
+T*
+(students.) Tj
+T*
+() Tj
+T*
+(Class Representative | IIT Bombay | 2024-2025) Tj
+T*
+(- Represented a class of approximately 60 first-year M.Sc. Physics students and coordinated) Tj
+T*
+ET
+BT
+/F1 8 Tf
+520 28 Td
+(Page 2 of 3) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 1239 >>
+stream
+BT
+/F1 9 Tf
+50 792 Td
+12 TL
+(Jayesh Janardan Jadhav - Curriculum Vitae) Tj
+0 -18 Td
+0 -4 Td
+(student activities.) Tj
+T*
+() Tj
+T*
+(Incredible 8 Team Lead | Lovely Professional University | 2022) Tj
+T*
+(- Led an eight-person departmental team in a multi-phase community support project.) Tj
+T*
+() Tj
+T*
+(AWARDS AND ACADEMIC DEVELOPMENT) Tj
+T*
+() Tj
+T*
+(- IIT JAM 2024: All India Rank 84.) Tj
+T*
+(- CUET-PG 2024: Score 159.) Tj
+T*
+(- Inter IIT 7.0 Photography: 5th position as a member of the IIT Bombay photography team,) Tj
+T*
+(2024.) Tj
+T*
+(- PG-Cult IIT Bombay Photography Competition: 3rd prize, 2024.) Tj
+T*
+(- Summer School on Optics and Photonics, IIT Delhi, 2025.) Tj
+T*
+(- Fourth International Conference on Recent Advances in Fundamental and Applied Sciences) Tj
+T*
+(\(RAFAS\), 2023.) Tj
+T*
+(- Workshop on Testing Aspects of General Relativity, IIT Gandhinagar, 2023.) Tj
+T*
+() Tj
+T*
+(INTERESTS) Tj
+T*
+() Tj
+T*
+(Nanophotonics, light-matter interaction, optical instrumentation, quantum-device) Tj
+T*
+(fabrication, experimental condensed matter physics, photography, fine art, swimming and) Tj
+T*
+(trekking.) Tj
+T*
+() Tj
+T*
+(LANGUAGES) Tj
+T*
+() Tj
+T*
+(Marathi, Hindi and English.) Tj
+T*
+ET
+BT
+/F1 8 Tf
+520 28 Td
+(Page 3 of 3) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Title (Jayesh Janardan Jadhav - Curriculum Vitae) /Author (Jayesh Janardan Jadhav) /Creator (Portfolio text-only PDF generator) >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000127 00000 n 
+0000000197 00000 n 
+0000000323 00000 n 
+0000003968 00000 n 
+0000004094 00000 n 
+0000006971 00000 n 
+0000007097 00000 n 
+0000008387 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R /Info 10 0 R >>
+startxref
+8538
+%%EOF

@@ -1,0 +1,514 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R 10 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 3773 >>
+stream
+BT
+/F1 9 Tf
+50 792 Td
+12 TL
+(M.Sc. Thesis Overview) Tj
+0 -18 Td
+(Simulation and Optical Design of Multilayer Transparent Conducting Oxides) Tj
+0 -18 Td
+(SIMULATION AND OPTICAL DESIGN OF MULTILAYER TRANSPARENT CONDUCTING OXIDES) Tj
+T*
+() Tj
+T*
+(M.Sc. Physics Thesis Overview) Tj
+T*
+(Jayesh Janardan Jadhav \(24N0285\)) Tj
+T*
+(Department of Physics, Indian Institute of Technology Bombay, 2026) Tj
+T*
+(Guide: Dr. Dinesh Kabra) Tj
+T*
+(Mentor: Mr. Subir Manna) Tj
+T*
+(Research location: National Centre for Photovoltaic Research and Education \(NCPRE\)) Tj
+T*
+() Tj
+T*
+(PURPOSE OF THIS WEB COPY) Tj
+T*
+() Tj
+T*
+(This text-only PDF is a concise overview prepared for the online research portfolio. It) Tj
+T*
+(presents the central motivation, modelling approach, results, limitations and future work of) Tj
+T*
+(the full M.Sc. thesis. The original submitted thesis contains the complete figures, tables,) Tj
+T*
+(equations and bibliography.) Tj
+T*
+() Tj
+T*
+(ABSTRACT) Tj
+T*
+() Tj
+T*
+(The thesis investigates the optical design of an indium zinc oxide / silver / indium zinc) Tj
+T*
+(oxide \(IZO/Ag/IZO\) multilayer as a transparent conducting electrode for photovoltaic) Tj
+T*
+(devices. Conventional transparent conducting oxides face a trade-off between optical) Tj
+T*
+(transmission and electrical conductivity. An oxide-metal-oxide structure can use an) Tj
+T*
+(ultrathin metal layer for lateral conduction while the surrounding dielectric layers are) Tj
+T*
+(designed to improve optical transmission through interference and admittance matching.) Tj
+T*
+() Tj
+T*
+(SETFOS simulations were used to study transmission, reflection and absorption while) Tj
+T*
+(systematically varying the thickness of the IZO and silver layers. Python-based analysis was) Tj
+T*
+(used to calculate wavelength-averaged transmission, transmitted photon flux and theoretical) Tj
+T*
+(short-circuit-current limits under the AM1.5G spectrum. The work also examined sheet) Tj
+T*
+(resistance and Haacke's figure of merit to avoid treating optical transmission as the only) Tj
+T*
+(design criterion.) Tj
+T*
+() Tj
+T*
+(A central part of the thesis was the treatment of ultrathin silver. Bulk optical constants) Tj
+T*
+(are not automatically valid for sub-10 nm films because the metal may grow as islands before) Tj
+T*
+(forming a continuous layer. Thickness-dependent behaviour was interpreted using a) Tj
+T*
+(Drude-based correction together with literature on Volmer-Weber growth, localized surface) Tj
+T*
+(plasmon resonance and wetting-layer-assisted continuity.) Tj
+T*
+() Tj
+T*
+(The idealised simulations identified IZO\(45 nm\)/Ag\(8 nm\)/IZO\(60 nm\) for the 300-800 nm range) Tj
+T*
+(and IZO\(45 nm\)/Ag\(8 nm\)/IZO\(40 nm\) for the 300-1300 nm range as promising optical designs.) Tj
+T*
+(These simulated improvements are theoretical design limits, not direct predictions of) Tj
+T*
+(fabricated-device performance. Real structures introduce surface roughness, thickness) Tj
+T*
+(non-uniformity, scattering, grain boundaries, interface diffusion, imperfect film continuity) Tj
+T*
+(and differences between assumed and measured optical constants.) Tj
+T*
+() Tj
+T*
+(1. RESEARCH MOTIVATION) Tj
+T*
+() Tj
+T*
+(Transparent conducting electrodes must transmit light while carrying current. Increasing) Tj
+T*
+(oxide thickness may reduce sheet resistance but can also increase optical loss. Reducing) Tj
+T*
+(thickness can improve some optical properties while weakening lateral conductivity. An) Tj
+T*
+(oxide-metal-oxide stack offers another design space: a thin metal layer supports conduction,) Tj
+T*
+(and the upper and lower oxide layers modify the optical field.) Tj
+T*
+() Tj
+T*
+(The project initially began as a transparent-electrode study for tandem solar cells. During) Tj
+T*
+ET
+BT
+/F1 8 Tf
+520 28 Td
+(Page 1 of 4) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 3629 >>
+stream
+BT
+/F1 9 Tf
+50 792 Td
+12 TL
+(M.Sc. Thesis Overview) Tj
+0 -18 Td
+0 -4 Td
+(the work, the emphasis shifted increasingly toward photonics and light-matter interaction.) Tj
+T*
+(The questions that became most engaging were how nanoscale thickness changes reshape the) Tj
+T*
+(spectrum, how the optical constants of ultrathin materials differ from bulk values, how) Tj
+T*
+(fields are distributed inside a multilayer, and how an ideal optical model should be) Tj
+T*
+(connected to fabrication constraints.) Tj
+T*
+() Tj
+T*
+(2. OPTICAL DESIGN APPROACH) Tj
+T*
+() Tj
+T*
+(The optical response of the multilayer was modelled using SETFOS. Thickness sweeps were) Tj
+T*
+(carried out for the top IZO, intermediate Ag and bottom IZO layers. The following quantities) Tj
+T*
+(were considered:) Tj
+T*
+() Tj
+T*
+(- Spectral transmission, reflection and absorption.) Tj
+T*
+(- Average transmission in wavelength ranges relevant to single-junction and tandem devices.) Tj
+T*
+(- AM1.5G-weighted transmitted photon flux.) Tj
+T*
+(- Theoretical short-circuit-current limit, used as an optical comparison metric.) Tj
+T*
+(- Approximate sheet resistance of the multilayer.) Tj
+T*
+(- Haacke's figure of merit, combining transparency and conductivity.) Tj
+T*
+() Tj
+T*
+(Python was used for data processing and comparison between candidate structures. The) Tj
+T*
+(workflow was designed to identify optical mechanisms and promising thickness combinations) Tj
+T*
+(rather than to claim that ideal simulated gains would be reproduced unchanged after) Tj
+T*
+(fabrication.) Tj
+T*
+() Tj
+T*
+(3. ULTRATHIN SILVER AND NON-BULK OPTICAL RESPONSE) Tj
+T*
+() Tj
+T*
+(Silver films below approximately 10-15 nm can be discontinuous. During early growth,) Tj
+T*
+(deposited atoms may form separated islands. As thickness increases, the islands connect and) Tj
+T*
+(eventually form a continuous conducting film. This transition affects both optical and) Tj
+T*
+(electrical behaviour.) Tj
+T*
+() Tj
+T*
+(The thesis therefore did not treat bulk silver constants as universally valid. A Drude-based) Tj
+T*
+(approach was used to explore thickness-dependent damping and optical response, supported by) Tj
+T*
+(literature on island growth, percolation, localized plasmon resonances and wetting layers. A) Tj
+T*
+(thin germanium wetting layer was considered in relation to improved continuity of ultrathin) Tj
+T*
+(silver.) Tj
+T*
+() Tj
+T*
+(This analysis also highlighted an important experimental point: a nominal thickness does not) Tj
+T*
+(uniquely determine performance. Deposition rate, substrate condition, vacuum quality,) Tj
+T*
+(surface energy, wetting layer, roughness and post-deposition history can all alter the) Tj
+T*
+(morphology and therefore the measured optical constants.) Tj
+T*
+() Tj
+T*
+(4. SIMULATED DESIGNS AND INTERPRETATION) Tj
+T*
+() Tj
+T*
+(For the 300-800 nm wavelength range, the simulation identified an IZO\(45 nm\)/Ag\(8 nm\)/IZO\(60) Tj
+T*
+(nm\) structure as a strong candidate. Relative to the simulated 140 nm IZO reference, the) Tj
+T*
+(model indicated an 8.55 percent increase in the theoretical short-circuit-current cap.) Tj
+T*
+() Tj
+T*
+(For the broader 300-1300 nm range, an IZO\(45 nm\)/Ag\(8 nm\)/IZO\(40 nm\) design gave a simulated) Tj
+T*
+(13.06 percent improvement in wavelength-averaged transmission and a 6.17 percent improvement) Tj
+T*
+(in the theoretical current cap relative to the chosen reference.) Tj
+T*
+() Tj
+T*
+(These percentages describe the output of an idealised optical comparison. They should not be) Tj
+T*
+(interpreted as guaranteed gains after deposition or as direct efficiency improvements in a) Tj
+T*
+ET
+BT
+/F1 8 Tf
+520 28 Td
+(Page 2 of 4) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 3401 >>
+stream
+BT
+/F1 9 Tf
+50 792 Td
+12 TL
+(M.Sc. Thesis Overview) Tj
+0 -18 Td
+0 -4 Td
+(complete solar cell. Fabricated films typically show smaller gains because the real stack) Tj
+T*
+(differs from the ideal model. Important causes include:) Tj
+T*
+() Tj
+T*
+(- Incomplete or non-uniform silver coverage.) Tj
+T*
+(- Surface and interface roughness.) Tj
+T*
+(- Grain-boundary and defect-related electrical losses.) Tj
+T*
+(- Thickness variation across the substrate.) Tj
+T*
+(- Scattering and absorption not fully represented by the optical data.) Tj
+T*
+(- Interdiffusion and chemical changes at interfaces.) Tj
+T*
+(- Differences between literature optical constants and the deposited films.) Tj
+T*
+(- Additional parasitic absorption in a complete device stack.) Tj
+T*
+() Tj
+T*
+(The value of the simulation is therefore to reveal optical headroom, identify sensitive) Tj
+T*
+(parameters and reduce the experimental search space. Measured optical constants, morphology) Tj
+T*
+(and device data should be returned to the model in later design iterations.) Tj
+T*
+() Tj
+T*
+(5. ELECTRICAL AND FIGURE-OF-MERIT ANALYSIS) Tj
+T*
+() Tj
+T*
+(Optical transmission alone is insufficient for evaluating a transparent electrode. The) Tj
+T*
+(silver layer can strongly reduce lateral resistance, but only if the film is sufficiently) Tj
+T*
+(continuous. The thesis compared approximate sheet resistance with optical performance and) Tj
+T*
+(evaluated Haacke's figure of merit.) Tj
+T*
+() Tj
+T*
+(The simulated optimized stacks showed a two-to-fourfold enhancement in the figure of merit) Tj
+T*
+(compared with the selected single-layer reference under the assumptions used. As with the) Tj
+T*
+(optical results, this represents model-based potential. Experimental sheet resistance) Tj
+T*
+(depends strongly on morphology, contact quality and the electrical behaviour of the) Tj
+T*
+(interfaces.) Tj
+T*
+() Tj
+T*
+(6. DEPOSITION-METHOD ANALYSIS) Tj
+T*
+() Tj
+T*
+(The thesis compared thermal evaporation and magnetron sputtering for ultrathin silver) Tj
+T*
+(deposition. A geometric material-utilisation estimate suggested that sputtering could) Tj
+T*
+(require approximately 24 times less target mass per deposition than the selected evaporation) Tj
+T*
+(configuration because of reduced angular loss and improved confinement of the deposited) Tj
+T*
+(flux.) Tj
+T*
+() Tj
+T*
+(This calculation is a tool-specific approximation, not a universal ratio for all evaporation) Tj
+T*
+(and sputtering systems. Actual utilisation depends on source geometry, target size, throw) Tj
+T*
+(distance, shielding, deposition area and operating conditions. The comparison nevertheless) Tj
+T*
+(showed why process efficiency and scalability should be considered alongside optical) Tj
+T*
+(performance.) Tj
+T*
+() Tj
+T*
+(7. EXPERIMENTAL FOUNDATION) Tj
+T*
+() Tj
+T*
+(The research was supported by hands-on experience with RF magnetron sputtering, metal) Tj
+T*
+(evaporation, cleanroom processing, vacuum handling, UV-Vis-NIR spectroscopy,) Tj
+T*
+(four-point-probe measurements and profilometry. This experimental exposure informed the) Tj
+T*
+(interpretation of the simulations and made clear why ideal layer thicknesses must be tested) Tj
+T*
+(against process capability and film morphology.) Tj
+T*
+() Tj
+T*
+(8. MAIN LESSONS) Tj
+T*
+() Tj
+T*
+(- Light management in a transparent electrode is a coupled optical, electrical and materials) Tj
+T*
+ET
+BT
+/F1 8 Tf
+520 28 Td
+(Page 3 of 4) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 2346 >>
+stream
+BT
+/F1 9 Tf
+50 792 Td
+12 TL
+(M.Sc. Thesis Overview) Tj
+0 -18 Td
+0 -4 Td
+(problem.) Tj
+T*
+(- Ultrathin-metal optical constants must be treated carefully; bulk data can be misleading.) Tj
+T*
+(- A large simulated improvement should be presented as theoretical optical potential, not) Tj
+T*
+(promised fabricated-device performance.) Tj
+T*
+(- The best workflow is iterative: design, fabricate, measure, update the model and redesign.) Tj
+T*
+(- Interface quality and morphology are part of the optical problem, not secondary) Tj
+T*
+(fabrication details.) Tj
+T*
+(- A useful design must be evaluated for manufacturability, material efficiency and device) Tj
+T*
+(compatibility.) Tj
+T*
+() Tj
+T*
+(9. FUTURE WORK) Tj
+T*
+() Tj
+T*
+(The next step is physical fabrication and systematic characterization of the optimized) Tj
+T*
+(stacks. Future work should include:) Tj
+T*
+() Tj
+T*
+(- Deposition of controlled IZO/Ag/IZO thickness series.) Tj
+T*
+(- Ellipsometric extraction of optical constants from the actual deposited layers.) Tj
+T*
+(- UV-Vis-NIR transmission and reflection measurements.) Tj
+T*
+(- Four-point-probe sheet-resistance measurements.) Tj
+T*
+(- AFM or electron-microscopy investigation of silver continuity and roughness.) Tj
+T*
+(- Comparison of wetting layers and deposition conditions.) Tj
+T*
+(- Integration into complete photovoltaic structures.) Tj
+T*
+(- Recalibration of the optical model using measured morphology and optical constants.) Tj
+T*
+() Tj
+T*
+(10. CONCLUSION) Tj
+T*
+() Tj
+T*
+(The thesis established a fabrication-aware optical-design workflow for IZO/Ag/IZO) Tj
+T*
+(transparent conducting multilayers. It identified promising thickness combinations and) Tj
+T*
+(clarified the physical assumptions behind their simulated performance. More importantly, the) Tj
+T*
+(work developed a research perspective in which modelling and fabrication are not separate) Tj
+T*
+(stages. Simulations reveal mechanisms and guide experiments; experiments determine which) Tj
+T*
+(assumptions are realistic and provide the data needed to improve the next model.) Tj
+T*
+() Tj
+T*
+(The project also marked a shift in research interest from photovoltaic electrode) Tj
+T*
+(optimisation toward the broader physics of light-matter interaction, multilayer photonics) Tj
+T*
+(and nanostructured optical materials.) Tj
+T*
+ET
+BT
+/F1 8 Tf
+520 28 Td
+(Page 4 of 4) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Title (M.Sc. Thesis Overview) /Author (Jayesh Janardan Jadhav) /Creator (Portfolio text-only PDF generator) >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000134 00000 n 
+0000000204 00000 n 
+0000000330 00000 n 
+0000004154 00000 n 
+0000004280 00000 n 
+0000007960 00000 n 
+0000008086 00000 n 
+0000011538 00000 n 
+0000011666 00000 n 
+0000014064 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R /Info 12 0 R >>
+startxref
+14195
+%%EOF

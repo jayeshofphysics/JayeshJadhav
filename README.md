@@ -1,59 +1,59 @@
 # Jayesh Jadhav — Portfolio
 
-A dark, editorial research portfolio designed for GitHub Pages. The website combines a minimal photography-portfolio aesthetic with an academic structure suited to physics, photonics and nanofabrication applications.
+A dark, editorial research portfolio for GitHub Pages, combining a minimal photography-portfolio aesthetic with an academic structure suited to physics, photonics, spectroscopy and nanofabrication applications.
 
 ## Pages
 
 - `index.html` — About, education, coursework and academic highlights
-- `research.html` — CV, thesis, research experience, projects, skills and awards
+- `research.html` — CV, thesis, research experience, projects, skills, conferences and workshops
+- `thesis-report.html` — Dedicated M.Sc. thesis overview based on the original project report
+- `barc-report.html` — Dedicated BARC high-pressure Raman and INDUS-II overview
 - `hobbies.html` — Photography gallery, fine art, swimming and trekking
 - `contact.html` — Email, LinkedIn, GitHub and phone
 - `404.html` — Custom error page
-- `style.css` — Responsive visual system
-- `app.js` — Mobile navigation, reveal effects and gallery controls
+- `style.css` — Core responsive visual system
+- `enhancements.css` — Optional interactive transitions and research schematics
+- `app.js` — Navigation, gallery controls, reveal effects and the motion toggle
+
+## Official document assets
+
+All website view/download links use the original files supplied in the capitalized `Assets` folder:
+
+- `Assets/RESUME.pdf` — CV/resume
+- `Assets/ThesisReport.pdf` — complete M.Sc. project report
+- `Assets/Jayesh BARC Report_merged.pdf` — BARC summer project report
+
+Do not replace website links with generated résumé or thesis-summary PDFs.
 
 ## Add your photographs
 
-The initial design uses lightweight CSS-generated placeholders, so the website works without image files.
+The hobbies gallery currently uses lightweight CSS-generated placeholders, so the website works without image files.
 
-To add a photograph to the hobbies gallery:
+To add a photograph:
 
-1. Create an `assets/photos` folder.
+1. Create an `Assets/photos` folder.
 2. Add files such as `photo-01.jpg`.
-3. In `hobbies.html`, replace a placeholder such as:
+3. Replace a gallery placeholder in `hobbies.html` with an image, for example:
 
 ```html
-<div class="photo-art p1" data-label="Replace with your photograph 01"></div>
+<img src="Assets/photos/photo-01.jpg" alt="A concise description of the photograph">
 ```
 
-with:
+For the About-page portrait, replace `profile-placeholder.svg` with your preferred portrait while keeping the same filename, or update the image path in `index.html`.
 
-```html
-<img src="assets/photos/photo-01.jpg" alt="A concise description of the photograph">
-```
+## Motion and interaction
 
-For the About-page portrait, replace the `portrait-art` placeholder in `index.html` with an `<img>` element in the same way.
-
-## CV and thesis downloads
-
-The Research page includes:
-
-- `assets/Jayesh_Jadhav_CV.pdf` — downloadable CV
-- `assets/Jayesh_Jadhav_MSc_Thesis.pdf` — a concise text-only thesis overview prepared for the portfolio
-
-The overview clearly distinguishes theoretical simulation limits from expected fabricated-device performance. The original submitted thesis—with its complete figures, tables, equations and bibliography—can replace this file later while keeping the same filename.
+The website includes restrained hover, reveal and pointer effects. A fixed **Motion: on/off** control lets visitors immediately return to the simpler static presentation. The choice is saved in the browser and the site also respects `prefers-reduced-motion`.
 
 ## Publish with GitHub Pages
 
-1. Merge the redesign branch into `main`.
-2. Open **Repository Settings → Pages**.
-3. Under **Build and deployment**, select **Deploy from a branch**.
-4. Choose `main` and `/ (root)`.
-5. Save and wait for GitHub Pages to publish the site.
+1. Open **Repository Settings → Pages**.
+2. Under **Build and deployment**, select **Deploy from a branch**.
+3. Choose `main` and `/ (root)`.
+4. Save and wait for GitHub Pages to publish the latest commit.
 
-## Recommended final checks
+## Recommended checks
 
-- Replace the CSS portrait and gallery placeholders with your own photographs.
-- Confirm all research dates and wording.
-- Replace the thesis-overview PDF with the original thesis when ready.
-- Check the mobile layout after adding photographs.
+- Replace the photography placeholders with original photographs.
+- Test the page on desktop and mobile after GitHub Pages redeploys.
+- Use a hard refresh if the browser still shows an older cached design.

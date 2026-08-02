@@ -114,7 +114,7 @@ if (track) {
 const finePointer = window.matchMedia('(pointer: fine)');
 
 if (finePointer.matches) {
-  document.querySelectorAll('[data-tilt]').forEach((element) => {
+  document.querySelectorAll('[data-tilt]:not(.cover-photo-stack)').forEach((element) => {
     element.addEventListener('pointermove', (event) => {
       if (document.body.classList.contains('motion-off')) return;
 

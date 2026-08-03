@@ -1,0 +1,79 @@
+/* Homepage typography refinements requested for the mobile and desktop cover. */
+.cover-title {
+  font-size: clamp(calc(3.65rem + 3px), calc(7.8vw + 3px), calc(9.2rem + 3px));
+}
+
+.brand {
+  font-size: calc(0.7rem + 2px);
+}
+
+.nav a {
+  font-size: calc(0.64rem + 2px);
+}
+
+.cover-download,
+.cover-role,
+.cover-index {
+  font-size: calc(0.64rem + 2px);
+}
+
+/* Match the bold editorial quote treatment in the supplied design. */
+.about-quote-column blockquote {
+  max-width: 460px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(calc(2.2rem + 2px), calc(4.1vw + 2px), calc(4.5rem + 2px));
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.93;
+}
+
+.about-quote-column cite {
+  font-family: inherit;
+  font-size: 0.56em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.hobby-achievements-section .card {
+  min-height: 285px;
+}
+
+.hobby-achievements-section .card h3 {
+  margin-top: 46px;
+}
+
+@media (max-width: 1050px) {
+  .cover-title {
+    font-size: clamp(calc(3.25rem + 3px), calc(9vw + 3px), calc(6.8rem + 3px));
+  }
+}
+
+@media (max-width: 760px) {
+  .cover-title {
+    font-size: clamp(calc(3rem + 3px), calc(13.5vw + 3px), calc(5.7rem + 3px));
+  }
+
+  .brand {
+    font-size: calc(0.7rem + 2px);
+  }
+
+  .nav a {
+    font-size: calc(0.64rem + 2px);
+  }
+
+  .about-quote-column blockquote {
+    font-size: clamp(calc(2.6rem + 2px), calc(11vw + 2px), calc(4.4rem + 2px));
+  }
+}
+
+@media (max-width: 470px) {
+  .cover-title {
+    font-size: clamp(calc(2.55rem + 3px), calc(14vw + 3px), calc(4.15rem + 3px));
+  }
+
+  .cover-download,
+  .cover-role,
+  .cover-index {
+    font-size: calc(0.58rem + 2px);
+  }
+}

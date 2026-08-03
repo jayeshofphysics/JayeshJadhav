@@ -1,4 +1,16 @@
 /* Distinct visual language for optical paths and applied pressure in the DAC diagram. */
+.dac-optical-paths {
+  display: flex;
+  min-width: 260px;
+  align-items: end;
+  justify-content: center;
+  gap: 48px;
+}
+
+.dac-beam {
+  min-width: 92px;
+}
+
 .dac-beam-in {
   color: #c9d2ff;
 }
@@ -8,7 +20,7 @@
   display: block;
   width: 2px;
   height: 46px;
-  margin-top: 8px;
+  margin: 8px auto 0;
   background: linear-gradient(180deg, #b9c5ff, #738cff);
   color: transparent;
   font-size: 0;
@@ -27,46 +39,41 @@
   transform: translateX(50%) rotate(45deg);
 }
 
+/* Raman light is collected back out through the upper optical path. */
 .dac-beam-out {
-  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 18px;
   color: #84ead9;
-  transform: translateX(38px);
+  transform: none;
 }
 
 .dac-beam-out b {
   position: relative;
   display: block;
-  width: 82px;
-  height: 42px;
+  width: 2px;
+  height: 46px;
+  margin-bottom: 8px;
+  border-left: 2px dashed #72ddcc;
   color: transparent;
   font-size: 0;
-}
-
-.dac-beam-out b::before {
-  position: absolute;
-  bottom: 8px;
-  left: 2px;
-  width: 64px;
-  border-top: 2px dashed #72ddcc;
-  content: "";
   filter: drop-shadow(0 0 6px rgba(114, 221, 204, .55));
-  transform: rotate(-34deg);
-  transform-origin: left center;
 }
 
 .dac-beam-out b::after {
   position: absolute;
-  top: -10px;
-  right: 5px;
-  color: #72ddcc;
-  content: "↗";
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1;
-  text-shadow: 0 0 12px rgba(114, 221, 204, .5);
+  top: -2px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid #72ddcc;
+  border-left: 2px solid #72ddcc;
+  content: "";
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.dac-diagram-spacer {
+  min-height: 24px;
 }
 
 /* Neutral block arrows identify mechanical compression, separate from optical paths. */
@@ -98,15 +105,16 @@
 }
 
 @media (max-width: 760px) {
+  .dac-optical-paths {
+    min-width: 220px;
+    gap: 28px;
+  }
+
   .dac-diagram::before,
   .dac-diagram::after {
     right: -20px;
     min-width: 68px;
     padding: 6px;
     font-size: .44rem;
-  }
-
-  .dac-beam-out {
-    transform: translateX(20px);
   }
 }

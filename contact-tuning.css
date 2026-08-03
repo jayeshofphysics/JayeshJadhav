@@ -1,0 +1,101 @@
+/* Contact page: large editorial message with a vertical contact panel. */
+.contact-page {
+  align-items: stretch;
+  min-height: 100svh;
+  padding: 150px 0 70px;
+}
+
+.contact-layout {
+  display: grid;
+  min-height: calc(100svh - 220px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: clamp(55px, 7vw, 120px);
+  align-items: center;
+}
+
+.contact-copy {
+  min-width: 0;
+}
+
+.contact-title {
+  max-width: 1080px;
+  font-size: clamp(3.5rem, 7.6vw, 8.2rem);
+}
+
+.contact-mail {
+  margin-top: 48px;
+}
+
+.contact-links {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  margin-top: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.contact-links a {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.76rem;
+}
+
+.contact-links a::after {
+  color: var(--muted);
+  content: "↗";
+  font-size: 1rem;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.contact-links a[href^="tel:"]::after {
+  content: "↗";
+}
+
+.contact-links a:hover {
+  padding-left: 14px;
+  background: transparent;
+  color: var(--accent-2);
+}
+
+.contact-links a:hover::after {
+  color: var(--accent-2);
+  transform: translate(4px, -4px);
+}
+
+@media (max-width: 900px) {
+  .contact-page {
+    padding-top: 130px;
+  }
+
+  .contact-layout {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+
+  .contact-links {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-title {
+    font-size: clamp(3rem, 14vw, 5.1rem);
+  }
+
+  .contact-mail {
+    overflow-wrap: anywhere;
+    font-size: 1.08rem;
+  }
+
+  .contact-links a {
+    min-height: 76px;
+  }
+}

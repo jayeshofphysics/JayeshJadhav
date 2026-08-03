@@ -25,44 +25,16 @@ if (menu && nav) {
 }
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const storedMotion = localStorage.getItem('portfolio-motion');
 
-if (storedMotion === 'off' || (storedMotion === null && prefersReducedMotion.matches)) {
+if (prefersReducedMotion.matches) {
   document.body.classList.add('motion-off');
 }
 
 document.body.classList.add('enhanced-ready');
 
-const motionToggle = document.createElement('button');
-motionToggle.type = 'button';
-motionToggle.className = 'motion-toggle';
-motionToggle.setAttribute('aria-label', 'Toggle enhanced transitions');
-document.body.appendChild(motionToggle);
-
-const updateMotionToggle = () => {
-  const motionOff = document.body.classList.contains('motion-off');
-  motionToggle.textContent = motionOff ? 'Motion: off' : 'Motion: on';
-  motionToggle.setAttribute('aria-pressed', String(!motionOff));
-  motionToggle.title = motionOff
-    ? 'Enable the optional interactive transitions'
-    : 'Return to the simpler static presentation';
-};
-
-updateMotionToggle();
-
-motionToggle.addEventListener('click', () => {
-  const motionOff = document.body.classList.toggle('motion-off');
-  localStorage.setItem('portfolio-motion', motionOff ? 'off' : 'on');
-  document.querySelectorAll('.fade').forEach((element) => element.classList.add('visible'));
-  document.querySelectorAll('[data-tilt]').forEach((element) => {
-    element.style.removeProperty('transform');
-  });
-  updateMotionToggle();
-});
-
 const fadeElements = document.querySelectorAll('.fade');
 
-if ('IntersectionObserver' in window && !document.body.classList.contains('motion-off')) {
+if ('IntersectionObserver' in window && !prefersReducedMotion.matches) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -79,6 +51,123 @@ if ('IntersectionObserver' in window && !document.body.classList.contains('motio
 } else {
   fadeElements.forEach((element) => element.classList.add('visible'));
 }
+
+const loadScript = (src) =>
+  new Promise((resolve, reject) => {
+    const existing = document.querySelector(`script[src="${src}"]`);
+
+    if (existing) {
+      if (existing.dataset.loaded === 'true') resolve();
+      else existing.addEventListener('load', resolve, { once: true });
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.addEventListener(
+      'load',
+      () => {
+        script.dataset.loaded = 'true';
+        resolve();
+      },
+      { once: true }
+    );
+    script.addEventListener('error', reject, { once: true });
+    document.head.appendChild(script);
+  });
+
+const splitHeadingIntoCharacters = (heading) => {
+  if (heading.dataset.scrollFloatReady === 'true') return;
+
+  const accessibleText = heading.textContent.replace(/\s+/g, ' ').trim();
+  if (accessibleText && !heading.hasAttribute('aria-label')) {
+    heading.setAttribute('aria-label', accessibleText);
+  }
+
+  const textNodes = [];
+  const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+  let node = walker.nextNode();
+
+  while (node) {
+    textNodes.push(node);
+    node = walker.nextNode();
+  }
+
+  textNodes.forEach((textNode) => {
+    if (!textNode.nodeValue) return;
+
+    const fragment = document.createDocumentFragment();
+
+    [...textNode.nodeValue].forEach((character) => {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = character === ' ' ? '\u00A0' : character;
+      fragment.appendChild(span);
+    });
+
+    textNode.replaceWith(fragment);
+  });
+
+  heading.classList.add('scroll-float');
+  heading.dataset.scrollFloatReady = 'true';
+};
+
+const initialiseScrollFloat = async () => {
+  if (prefersReducedMotion.matches) return;
+
+  const headings = document.querySelectorAll('.display-title, .section-title');
+  if (!headings.length) return;
+
+  try {
+    await loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js');
+    await loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
+
+    const { gsap, ScrollTrigger } = window;
+    if (!gsap || !ScrollTrigger) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    headings.forEach((heading) => {
+      splitHeadingIntoCharacters(heading);
+      const characters = heading.querySelectorAll('.char');
+
+      gsap.fromTo(
+        characters,
+        {
+          willChange: 'opacity, transform',
+          opacity: 0,
+          yPercent: 120,
+          scaleY: 2.3,
+          scaleX: 0.7,
+          transformOrigin: '50% 0%'
+        },
+        {
+          duration: 1,
+          ease: 'back.inOut(2)',
+          opacity: 1,
+          yPercent: 0,
+          scaleY: 1,
+          scaleX: 1,
+          stagger: 0.03,
+          scrollTrigger: {
+            trigger: heading,
+            start: 'center bottom+=50%',
+            end: 'bottom bottom-=40%',
+            scrub: true
+          }
+        }
+      );
+    });
+
+    window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+  } catch (error) {
+    console.warn('ScrollFloat animation could not be loaded.', error);
+  }
+};
+
+initialiseScrollFloat();
 
 const track = document.querySelector('.gallery-track');
 
@@ -113,11 +202,9 @@ if (track) {
 
 const finePointer = window.matchMedia('(pointer: fine)');
 
-if (finePointer.matches) {
+if (finePointer.matches && !prefersReducedMotion.matches) {
   document.querySelectorAll('[data-tilt]:not(.cover-photo-stack)').forEach((element) => {
     element.addEventListener('pointermove', (event) => {
-      if (document.body.classList.contains('motion-off')) return;
-
       const rect = element.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;
       const y = (event.clientY - rect.top) / rect.height - 0.5;

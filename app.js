@@ -174,7 +174,7 @@ const makeGalleryPlaceholder = (start, end, label) => {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 };
 
-const initialiseCurvedGallery = async () => {
+const initialiseFlatGallery = async () => {
   const container = document.querySelector('#hobby-gallery');
   if (!container || prefersReducedMotion.matches) return;
 
@@ -235,12 +235,10 @@ const initialiseCurvedGallery = async () => {
     };
 
     class GalleryMedia {
-      constructor({ gl, geometry, scene, renderer, camera, data, index, length }) {
+      constructor({ gl, geometry, scene, data, index, length }) {
         this.gl = gl;
         this.geometry = geometry;
         this.scene = scene;
-        this.renderer = renderer;
-        this.camera = camera;
         this.data = data;
         this.index = index;
         this.length = length;
@@ -339,7 +337,10 @@ const initialiseCurvedGallery = async () => {
           uniforms: { tMap: { value: titleData.texture } }
         });
 
-        this.title = new Mesh(this.gl, { geometry: new Plane(this.gl), program: titleProgram });
+        this.title = new Mesh(this.gl, {
+          geometry: new Plane(this.gl),
+          program: titleProgram
+        });
         this.title.setParent(this.plane);
         this.titleAspect = titleData.width / titleData.height;
       }
@@ -361,14 +362,8 @@ const initialiseCurvedGallery = async () => {
 
       update(scroll, direction) {
         this.plane.position.x = this.x - scroll.current - this.extra;
-        const x = this.plane.position.x;
-        const halfWidth = this.viewport.width / 2;
-        const bend = 1.35;
-        const radius = (halfWidth * halfWidth + bend * bend) / (2 * bend);
-        const effectiveX = Math.min(Math.abs(x), halfWidth);
-        const arc = radius - Math.sqrt(Math.max(0, radius * radius - effectiveX * effectiveX));
-        this.plane.position.y = -arc;
-        this.plane.rotation.z = -Math.sign(x) * Math.asin(effectiveX / radius);
+        this.plane.position.y = 0;
+        this.plane.rotation.z = 0;
 
         const speed = scroll.current - scroll.last;
         this.program.uniforms.uTime.value += 0.035;
@@ -384,7 +379,7 @@ const initialiseCurvedGallery = async () => {
       }
     }
 
-    class CurvedGallery {
+    class FlatGallery {
       constructor(element) {
         this.element = element;
         this.scroll = { ease: 0.055, current: 0, target: 0, last: 0 };
@@ -400,7 +395,11 @@ const initialiseCurvedGallery = async () => {
       }
 
       createScene() {
-        this.renderer = new Renderer({ alpha: true, antialias: true, dpr: Math.min(devicePixelRatio || 1, 2) });
+        this.renderer = new Renderer({
+          alpha: true,
+          antialias: true,
+          dpr: Math.min(devicePixelRatio || 1, 2)
+        });
         this.gl = this.renderer.gl;
         this.gl.clearColor(0, 0, 0, 0);
         this.element.appendChild(this.gl.canvas);
@@ -419,8 +418,6 @@ const initialiseCurvedGallery = async () => {
               gl: this.gl,
               geometry: this.geometry,
               scene: this.scene,
-              renderer: this.renderer,
-              camera: this.camera,
               data,
               index,
               length: repeated.length
@@ -429,7 +426,10 @@ const initialiseCurvedGallery = async () => {
       }
 
       resize = () => {
-        this.screen = { width: this.element.clientWidth, height: this.element.clientHeight };
+        this.screen = {
+          width: this.element.clientWidth,
+          height: this.element.clientHeight
+        };
         this.renderer.setSize(this.screen.width, this.screen.height);
         this.camera.perspective({ aspect: this.screen.width / this.screen.height });
         const fov = (this.camera.fov * Math.PI) / 180;
@@ -451,7 +451,9 @@ const initialiseCurvedGallery = async () => {
       };
 
       onWheel = (event) => {
-        const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+        const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY)
+          ? event.deltaX
+          : event.deltaY;
         this.scroll.target += Math.sign(delta || 1) * this.scrollSpeed * 0.55;
         this.scheduleSnap();
       };
@@ -480,6 +482,7 @@ const initialiseCurvedGallery = async () => {
 
       onKeyDown = (event) => {
         const width = this.media[0]?.width || 4;
+
         if (event.key === 'ArrowRight') {
           event.preventDefault();
           this.scroll.target += width;
@@ -492,6 +495,7 @@ const initialiseCurvedGallery = async () => {
         } else {
           return;
         }
+
         this.scheduleSnap();
       };
 
@@ -506,7 +510,8 @@ const initialiseCurvedGallery = async () => {
       }
 
       update = () => {
-        this.scroll.current += (this.scroll.target - this.scroll.current) * this.scroll.ease;
+        this.scroll.current +=
+          (this.scroll.target - this.scroll.current) * this.scroll.ease;
         const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
         this.media.forEach((item) => item.update(this.scroll, direction));
         this.renderer.render({ scene: this.scene, camera: this.camera });
@@ -515,13 +520,13 @@ const initialiseCurvedGallery = async () => {
       };
     }
 
-    new CurvedGallery(container);
+    new FlatGallery(container);
   } catch (error) {
-    console.warn('The curved photography gallery could not be loaded.', error);
+    console.warn('The photography gallery could not be loaded.', error);
   }
 };
 
-initialiseCurvedGallery();
+initialiseFlatGallery();
 
 const finePointer = window.matchMedia('(pointer: fine)');
 

@@ -1,4 +1,4 @@
-/* Personal-life gallery: a calm, flat horizontal strip using the uploaded photographs. */
+/* Personal-life gallery: mixed portrait and landscape photographs with no cropping. */
 .life-section {
   overflow: hidden;
 }
@@ -59,6 +59,7 @@
 
 .life-gallery {
   display: flex;
+  align-items: center;
   gap: clamp(14px, 1.5vw, 22px);
   overflow-x: auto;
   padding: clamp(28px, 4vw, 56px) 0;
@@ -88,51 +89,34 @@
 }
 
 .life-card {
-  flex: 0 0 clamp(235px, 25vw, 330px);
+  display: grid;
+  flex: 0 0 auto;
+  min-width: 0;
   margin: 0;
+  place-items: center;
   scroll-snap-align: start;
 }
 
-.life-photo {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
+.life-card img {
+  width: auto;
+  height: auto;
+  max-width: min(78vw, 760px);
+  max-height: min(62vh, 620px);
+  display: block;
   border: 1px solid rgba(255, 255, 255, .14);
-  background-color: #050505;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background: #050505;
+  object-fit: contain;
+  object-position: center;
   box-shadow: 0 24px 65px rgba(0, 0, 0, .22);
+  -webkit-user-drag: none;
   transition: transform 500ms cubic-bezier(.22, .75, .2, 1), border-color 220ms ease, filter 500ms ease;
 }
 
-.life-card:hover .life-photo {
+.life-card:hover img {
   border-color: rgba(255, 255, 255, .32);
   filter: saturate(1.04) contrast(1.01);
   transform: translateY(-7px) scale(1.012);
 }
-
-/* Use the files uploaded to assets/life directly; no JavaScript image decoding is required. */
-.life-photo-01 { background-image: url("assets/life/DSC_7138.jpg?v=6"); }
-.life-photo-02 { background-image: url("assets/life/IMG_0801.JPG?v=6"); }
-.life-photo-03 { background-image: url("assets/life/IMG-20240825-WA0059.jpg?v=6"); }
-.life-photo-04 { background-image: url("assets/life/IMG-20241219-WA0013.jpg?v=6"); }
-.life-photo-05 { background-image: url("assets/life/IMG-20250107-WA0015.jpg?v=6"); }
-.life-photo-06 { background-image: url("assets/life/IMG-20260111-WA0127.jpg?v=6"); }
-.life-photo-07 { background-image: url("assets/life/IMG-20260312-WA0112.jpg?v=6"); }
-.life-photo-08 { background-image: url("assets/life/IMG_20251004_183450998.jpg?v=6"); }
-.life-photo-09 { background-image: url("assets/life/IMG_20260502_214450697_HDR_AE.jpg?v=6"); }
-.life-photo-10 { background-image: url("assets/life/IMG_5750.jpg?v=6"); }
-.life-photo-11 { background-image: url("assets/life/91E78180-CC1B-4599-8238-15A84B4D0E9C.jpg?v=6"); }
-.life-photo-12 {
-  background-image:
-    url("assets/life/IMG_6654.heif?v=6"),
-    url("assets/life/life-sprite.webp?v=6");
-  background-position: center, 0 100%;
-  background-size: contain, 400% 400%;
-}
-.life-photo-13 { background-image: url("assets/life/Screenshot_20260803-174538.png?v=6"); }
 
 @media (max-width: 760px) {
   .life-gallery-toolbar {
@@ -144,8 +128,9 @@
     line-height: 1.35;
   }
 
-  .life-card {
-    flex-basis: min(74vw, 295px);
+  .life-card img {
+    max-width: 82vw;
+    max-height: 62vh;
   }
 
   .life-gallery-button {
@@ -156,7 +141,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .life-gallery,
-  .life-photo,
+  .life-card img,
   .life-gallery-button {
     scroll-behavior: auto;
     transition: none;

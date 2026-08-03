@@ -88,7 +88,7 @@
 }
 
 .life-card {
-  flex: 0 0 clamp(210px, 22vw, 260px);
+  flex: 0 0 clamp(235px, 25vw, 330px);
   margin: 0;
   scroll-snap-align: start;
 }
@@ -96,36 +96,43 @@
 .life-photo {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .14);
   background-color: #050505;
-  background-image: url('assets/life/life-sprite.webp');
   background-repeat: no-repeat;
-  background-size: 400% 400%;
+  background-position: center;
+  background-size: contain;
   box-shadow: 0 24px 65px rgba(0, 0, 0, .22);
   transition: transform 500ms cubic-bezier(.22, .75, .2, 1), border-color 220ms ease, filter 500ms ease;
 }
 
 .life-card:hover .life-photo {
-  border-color: rgba(255, 255, 255, .3);
-  filter: saturate(1.06) contrast(1.02);
+  border-color: rgba(255, 255, 255, .32);
+  filter: saturate(1.04) contrast(1.01);
   transform: translateY(-7px) scale(1.012);
 }
 
-.life-photo-01 { background-position: 0 0; }
-.life-photo-02 { background-position: 33.333% 0; }
-.life-photo-03 { background-position: 66.666% 0; }
-.life-photo-04 { background-position: 100% 0; }
-.life-photo-05 { background-position: 0 33.333%; }
-.life-photo-06 { background-position: 33.333% 33.333%; }
-.life-photo-07 { background-position: 66.666% 33.333%; }
-.life-photo-08 { background-position: 100% 33.333%; }
-.life-photo-09 { background-position: 0 66.666%; }
-.life-photo-10 { background-position: 33.333% 66.666%; }
-.life-photo-11 { background-position: 66.666% 66.666%; }
-.life-photo-12 { background-position: 100% 66.666%; }
-.life-photo-13 { background-position: 0 100%; }
+/* Use the files uploaded to assets/life directly; no JavaScript image decoding is required. */
+.life-photo-01 { background-image: url("assets/life/DSC_7138.jpg?v=6"); }
+.life-photo-02 { background-image: url("assets/life/IMG_0801.JPG?v=6"); }
+.life-photo-03 { background-image: url("assets/life/IMG-20240825-WA0059.jpg?v=6"); }
+.life-photo-04 { background-image: url("assets/life/IMG-20241219-WA0013.jpg?v=6"); }
+.life-photo-05 { background-image: url("assets/life/IMG-20250107-WA0015.jpg?v=6"); }
+.life-photo-06 { background-image: url("assets/life/IMG-20260111-WA0127.jpg?v=6"); }
+.life-photo-07 { background-image: url("assets/life/IMG-20260312-WA0112.jpg?v=6"); }
+.life-photo-08 { background-image: url("assets/life/IMG_20251004_183450998.jpg?v=6"); }
+.life-photo-09 { background-image: url("assets/life/IMG_20260502_214450697_HDR_AE.jpg?v=6"); }
+.life-photo-10 { background-image: url("assets/life/IMG_5750.jpg?v=6"); }
+.life-photo-11 { background-image: url("assets/life/91E78180-CC1B-4599-8238-15A84B4D0E9C.jpg?v=6"); }
+.life-photo-12 {
+  background-image:
+    url("assets/life/IMG_6654.heif?v=6"),
+    url("assets/life/life-sprite.webp?v=6");
+  background-position: center, 0 100%;
+  background-size: contain, 400% 400%;
+}
+.life-photo-13 { background-image: url("assets/life/Screenshot_20260803-174538.png?v=6"); }
 
 @media (max-width: 760px) {
   .life-gallery-toolbar {
@@ -138,7 +145,7 @@
   }
 
   .life-card {
-    flex-basis: min(68vw, 250px);
+    flex-basis: min(74vw, 295px);
   }
 
   .life-gallery-button {

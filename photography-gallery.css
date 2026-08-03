@@ -1,4 +1,4 @@
-/* Selected photography: direct, reliable horizontal gallery using repository images. */
+/* Selected photography: mixed portrait and landscape frames with no cropping. */
 .photography-gallery-shell {
   position: relative;
   overflow: hidden;
@@ -55,6 +55,7 @@
 
 .photography-gallery {
   display: flex;
+  align-items: center;
   gap: clamp(14px, 1.6vw, 24px);
   overflow-x: auto;
   padding: clamp(28px, 4vw, 58px) 0;
@@ -78,18 +79,23 @@
 }
 
 .photography-card {
-  flex: 0 0 clamp(250px, 31vw, 430px);
+  display: grid;
+  flex: 0 0 auto;
+  min-width: 0;
   margin: 0;
+  place-items: center;
   scroll-snap-align: start;
 }
 
 .photography-card img {
-  width: 100%;
-  height: clamp(360px, 48vw, 610px);
+  width: auto;
+  height: auto;
+  max-width: min(78vw, 760px);
+  max-height: min(62vh, 610px);
   display: block;
   border: 1px solid rgba(255, 255, 255, .12);
   background: #050505;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   box-shadow: 0 28px 72px rgba(0, 0, 0, .28);
   transition: transform 500ms cubic-bezier(.22, .75, .2, 1), border-color 220ms ease, filter 500ms ease;
@@ -111,12 +117,9 @@
     line-height: 1.35;
   }
 
-  .photography-card {
-    flex-basis: min(78vw, 330px);
-  }
-
   .photography-card img {
-    height: min(108vw, 470px);
+    max-width: 82vw;
+    max-height: 62vh;
   }
 
   .photography-gallery-button {

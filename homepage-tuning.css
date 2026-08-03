@@ -1,12 +1,39 @@
-/* Homepage typography refinements requested for the mobile and desktop cover. */
+/* Homepage typography and portrait placement tuned to the supplied artboard. */
 .cover-title {
+  position: relative;
+  z-index: 4;
   font-size: clamp(calc(3.65rem + 3px), calc(7.8vw + 3px), calc(9.2rem + 3px));
-  transform: translateY(65px);
+  transform: translateY(55px);
 }
 
-/* Visually centre the layered portrait behind the asymmetrical title. */
+/* The supplied portrait stack is positioned inside the intended central frame. */
 .cover-photo-stack {
-  left: 47%;
+  top: 44%;
+  left: 51.2%;
+  z-index: 2;
+  width: clamp(188px, 15.7vw, 240px);
+  aspect-ratio: 240 / 341;
+  pointer-events: none;
+  animation: none !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* The uploaded image already contains the complete layered-card composition. */
+.cover-photo-stack .card-back-one,
+.cover-photo-stack .card-back-two {
+  display: none;
+}
+
+.cover-photo-stack .card-photo {
+  inset: 0;
+  border: 0;
+  background: #050505 url("assets/profile-stack.jpg?v=5") center / contain no-repeat;
+  box-shadow: none;
+  transform: none;
+}
+
+.cover-photo-stack .card-photo img {
+  opacity: 0;
 }
 
 .brand {
@@ -52,16 +79,24 @@
   .cover-title {
     font-size: clamp(calc(3.25rem + 3px), calc(9vw + 3px), calc(6.8rem + 3px));
   }
+
+  .cover-photo-stack {
+    top: 42%;
+    left: 51%;
+    width: clamp(170px, 19vw, 215px);
+  }
 }
 
 @media (max-width: 760px) {
   .cover-photo-stack {
+    top: 29%;
     left: 50%;
+    width: 150px;
   }
 
   .cover-title {
     font-size: clamp(calc(3rem + 3px), calc(13.5vw + 3px), calc(5.7rem + 3px));
-    transform: translateY(35px);
+    transform: translateY(42px);
   }
 
   .brand {
@@ -78,8 +113,14 @@
 }
 
 @media (max-width: 470px) {
+  .cover-photo-stack {
+    top: 27%;
+    width: 134px;
+  }
+
   .cover-title {
     font-size: clamp(calc(2.55rem + 3px), calc(14vw + 3px), calc(4.15rem + 3px));
+    transform: translateY(36px);
   }
 
   .cover-download,

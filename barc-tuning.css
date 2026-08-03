@@ -1,0 +1,112 @@
+/* Distinct visual language for optical paths and applied pressure in the DAC diagram. */
+.dac-beam-in {
+  color: #c9d2ff;
+}
+
+.dac-beam-in b {
+  position: relative;
+  display: block;
+  width: 2px;
+  height: 46px;
+  margin-top: 8px;
+  background: linear-gradient(180deg, #b9c5ff, #738cff);
+  color: transparent;
+  font-size: 0;
+  box-shadow: 0 0 14px rgba(115, 140, 255, .55);
+}
+
+.dac-beam-in b::after {
+  position: absolute;
+  right: 50%;
+  bottom: -2px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #8fa4ff;
+  border-bottom: 2px solid #8fa4ff;
+  content: "";
+  transform: translateX(50%) rotate(45deg);
+}
+
+.dac-beam-out {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #84ead9;
+  transform: translateX(38px);
+}
+
+.dac-beam-out b {
+  position: relative;
+  display: block;
+  width: 82px;
+  height: 42px;
+  color: transparent;
+  font-size: 0;
+}
+
+.dac-beam-out b::before {
+  position: absolute;
+  bottom: 8px;
+  left: 2px;
+  width: 64px;
+  border-top: 2px dashed #72ddcc;
+  content: "";
+  filter: drop-shadow(0 0 6px rgba(114, 221, 204, .55));
+  transform: rotate(-34deg);
+  transform-origin: left center;
+}
+
+.dac-beam-out b::after {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  color: #72ddcc;
+  content: "↗";
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(114, 221, 204, .5);
+}
+
+/* Neutral block arrows identify mechanical compression, separate from optical paths. */
+.dac-diagram::before,
+.dac-diagram::after {
+  position: absolute;
+  right: -72px;
+  z-index: 4;
+  min-width: 82px;
+  padding: 8px 9px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(7, 9, 13, .86);
+  color: #c8c9cd;
+  font-size: .5rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dac-diagram::before {
+  top: 118px;
+  content: "Pressure  ▼";
+}
+
+.dac-diagram::after {
+  bottom: 100px;
+  content: "Pressure  ▲";
+}
+
+@media (max-width: 760px) {
+  .dac-diagram::before,
+  .dac-diagram::after {
+    right: -20px;
+    min-width: 68px;
+    padding: 6px;
+    font-size: .44rem;
+  }
+
+  .dac-beam-out {
+    transform: translateX(20px);
+  }
+}

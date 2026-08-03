@@ -1,6 +1,12 @@
 /* Homepage typography refinements requested for the mobile and desktop cover. */
 .cover-title {
   font-size: clamp(calc(3.65rem + 3px), calc(7.8vw + 3px), calc(9.2rem + 3px));
+  transform: translateY(65px);
+}
+
+/* Visually centre the layered portrait behind the asymmetrical title. */
+.cover-photo-stack {
+  left: 47%;
 }
 
 .brand {
@@ -49,8 +55,13 @@
 }
 
 @media (max-width: 760px) {
+  .cover-photo-stack {
+    left: 50%;
+  }
+
   .cover-title {
     font-size: clamp(calc(3rem + 3px), calc(13.5vw + 3px), calc(5.7rem + 3px));
+    transform: translateY(35px);
   }
 
   .brand {

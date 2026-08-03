@@ -1,0 +1,177 @@
+/* Personal-life gallery: a calm, flat horizontal strip matching the photography page. */
+.life-section {
+  overflow: hidden;
+}
+
+.life-gallery-shell {
+  position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 86% 14%, rgba(199, 255, 229, .07), transparent 25%),
+    radial-gradient(circle at 12% 78%, rgba(140, 161, 255, .08), transparent 29%);
+}
+
+.life-gallery-toolbar {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 2px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .62rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.life-gallery-buttons {
+  display: flex;
+  gap: 9px;
+}
+
+.life-gallery-button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .17);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.life-gallery-button:hover,
+.life-gallery-button:focus-visible {
+  border-color: var(--accent-2);
+  background: var(--accent-2);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+.life-gallery-button:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: 4px;
+}
+
+.life-gallery {
+  display: flex;
+  gap: clamp(14px, 1.5vw, 22px);
+  overflow-x: auto;
+  padding: clamp(26px, 4vw, 54px) 0 clamp(30px, 4vw, 56px);
+  cursor: grab;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 2px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.life-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.life-gallery.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+.life-gallery:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: 5px;
+}
+
+.life-card {
+  flex: 0 0 clamp(235px, 27vw, 390px);
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.life-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background-color: #151515;
+  background-image:
+    var(--life-image),
+    linear-gradient(145deg, var(--life-a, #172235), var(--life-b, #6a7d9d));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 24px 65px rgba(0, 0, 0, .22);
+  transition: transform 500ms cubic-bezier(.22, .75, .2, 1), border-color 220ms ease, filter 500ms ease;
+}
+
+.life-photo::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, .48));
+  content: "";
+}
+
+.life-photo::after {
+  position: absolute;
+  right: 15px;
+  bottom: 13px;
+  color: rgba(255, 255, 255, .78);
+  content: attr(data-index);
+  font-size: .61rem;
+  letter-spacing: .13em;
+}
+
+.life-card:hover .life-photo {
+  border-color: rgba(255, 255, 255, .28);
+  filter: saturate(1.06);
+  transform: translateY(-7px) scale(1.008);
+}
+
+.life-card figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 13px;
+  color: var(--text);
+  font-size: .68rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.life-card figcaption span:last-child {
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .life-gallery-toolbar {
+    min-height: 58px;
+  }
+
+  .life-gallery-toolbar > span {
+    max-width: 190px;
+    line-height: 1.35;
+  }
+
+  .life-card {
+    flex-basis: min(76vw, 330px);
+  }
+
+  .life-gallery-button {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .life-gallery,
+  .life-photo,
+  .life-gallery-button {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}

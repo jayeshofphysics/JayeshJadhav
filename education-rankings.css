@@ -1,0 +1,72 @@
+/* University-first hierarchy and compact ranking highlights. */
+.edu-institution {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3vw, 3.35rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.education .edu-degree {
+  margin: 0 0 18px;
+  color: var(--accent);
+  font-size: clamp(1.15rem, 1.75vw, 1.7rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+.edu-rankings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+
+.edu-rank {
+  padding: 8px 11px;
+  border: 1px solid #343434;
+  color: #c7c5bf;
+  font-size: .68rem;
+  letter-spacing: .035em;
+  line-height: 1.35;
+}
+
+.edu-rank strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.edu-rank-primary {
+  border-color: rgba(140, 161, 255, .58);
+  background: rgba(140, 161, 255, .075);
+  color: #dce2ff;
+}
+
+.edu-rank-primary strong {
+  color: var(--accent);
+}
+
+.education .edu-meta {
+  max-width: 820px;
+}
+
+@media (max-width: 760px) {
+  .edu-institution {
+    font-size: clamp(1.65rem, 7.5vw, 2.4rem);
+  }
+
+  .education .edu-degree {
+    font-size: 1.12rem;
+  }
+
+  .edu-rankings {
+    display: grid;
+  }
+
+  .edu-rank {
+    width: 100%;
+  }
+}

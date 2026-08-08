@@ -172,6 +172,15 @@
     font-size: clamp(2.8rem, 4vw, 4.55rem);
     line-height: .9;
   }
+
+  /* Project-wall visual order: swap cards 02 and 04 without changing their content. */
+  .research-page main > .research-section:nth-of-type(3) .work-mfc {
+    grid-area: vector !important;
+  }
+
+  .research-page main > .research-section:nth-of-type(3) .work-vector {
+    grid-area: mfc !important;
+  }
 }
 
 @media (max-width: 1000px) {

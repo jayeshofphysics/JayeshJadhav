@@ -18,6 +18,56 @@
   line-height: 1.12;
 }
 
+/* Compact institution marks add quick visual recognition without overpowering the academic hierarchy. */
+.edu-institution-line {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.edu-institution-line > div {
+  min-width: 0;
+}
+
+.edu-mark {
+  position: relative;
+  display: grid;
+  width: 46px;
+  height: 46px;
+  margin-top: 2px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(140,161,255,.10), transparent 64%),
+    rgba(255,255,255,.018);
+  color: var(--text);
+  font-size: .47rem;
+  font-weight: 650;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-align: center;
+}
+
+.edu-mark::before {
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(140,161,255,.28);
+  border-radius: 50%;
+  content: "";
+}
+
+.edu-mark-iitb {
+  border-color: rgba(140,161,255,.40);
+  color: #dce2ff;
+}
+
+.edu-mark-lpu {
+  border-color: rgba(199,255,229,.32);
+  color: #d7f8e8;
+}
+
 .edu-rankings {
   display: flex;
   flex-wrap: wrap;
@@ -60,6 +110,17 @@
 
   .education .edu-degree {
     font-size: 1.12rem;
+  }
+
+  .edu-institution-line {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .edu-mark {
+    width: 40px;
+    height: 40px;
+    font-size: .43rem;
   }
 
   .edu-rankings {

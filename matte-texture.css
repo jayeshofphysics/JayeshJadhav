@@ -38,6 +38,31 @@ body::before {
   background-color: rgba(5, 5, 5, .94);
 }
 
+/* Header typography is intentionally locked to the CV & Research treatment on every page. */
+.site-header .brand {
+  font-family: var(--body) !important;
+  font-size: .7rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .11em !important;
+}
+
+.site-header .brand span {
+  margin-top: 3px !important;
+  font-family: var(--body) !important;
+  font-size: .59rem !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.site-header .nav a {
+  font-family: var(--body) !important;
+  font-size: .64rem !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .08em !important;
+}
+
 @media (max-width: 760px) {
   body::before {
     opacity: .075;

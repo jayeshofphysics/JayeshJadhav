@@ -63,6 +63,36 @@ body::before {
   letter-spacing: .08em !important;
 }
 
+/* Research has a longer masthead word than the other pages. Preserve the same visual weight without
+   allowing RESEARCH to intrude into the summary/buttons column on common laptop and desktop widths. */
+@media (min-width: 1001px) {
+  .research-page .research-hero-inner {
+    grid-template-columns: minmax(0, 1.08fr) minmax(430px, .92fr) !important;
+    gap: clamp(58px, 5vw, 92px) !important;
+  }
+
+  .research-page .research-hero-title {
+    max-width: 100% !important;
+    font-size: clamp(4rem, 7.2vw, 7.6rem) !important;
+    line-height: .86 !important;
+    white-space: nowrap !important;
+  }
+
+  .research-page .research-hero .page-summary {
+    max-width: 680px !important;
+  }
+
+  .research-page .research-hero-meta {
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .research-page .research-hero-meta .button {
+    padding-inline: 15px !important;
+    font-size: .64rem !important;
+  }
+}
+
 @media (max-width: 760px) {
   body::before {
     opacity: .075;

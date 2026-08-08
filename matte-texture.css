@@ -38,7 +38,26 @@ body::before {
   background-color: rgba(5, 5, 5, .94);
 }
 
-/* Header typography is intentionally locked to the CV & Research treatment on every page. */
+/* One header system on every page: same container, vertical position and typography. */
+.site-header {
+  padding: 18px 0 26px !important;
+}
+
+.site-header.compact {
+  padding: 12px 0 !important;
+}
+
+.site-header .shell {
+  width: min(100%, var(--max)) !important;
+  margin-inline: auto !important;
+  padding-inline: var(--pad) !important;
+}
+
+.site-header .header-row {
+  min-height: 42px;
+  align-items: center !important;
+}
+
 .site-header .brand {
   font-family: var(--body) !important;
   font-size: .7rem !important;
@@ -61,6 +80,90 @@ body::before {
   font-weight: 400 !important;
   line-height: 1.2 !important;
   letter-spacing: .08em !important;
+}
+
+/* Desktop navigation uses one shared underline. It glides between destinations instead of each
+   link drawing its own separate line, while keeping all nav labels perfectly aligned page-to-page. */
+@media (min-width: 761px) {
+  .site-header .nav {
+    position: relative;
+    display: grid !important;
+    width: clamp(440px, 31vw, 530px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 !important;
+    align-items: center;
+  }
+
+  .site-header .nav a {
+    display: block;
+    width: 100%;
+    padding: 7px 4px 10px !important;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .site-header .nav a::after {
+    display: none !important;
+  }
+
+  .site-header .nav::after {
+    position: absolute;
+    bottom: 4px;
+    left: calc(12.5% - 24px);
+    width: 48px;
+    height: 1px;
+    background: var(--text);
+    content: "";
+    pointer-events: none;
+    transition:
+      left 420ms cubic-bezier(.22, .75, .2, 1),
+      width 420ms cubic-bezier(.22, .75, .2, 1),
+      opacity 180ms ease;
+  }
+
+  .site-header .nav:has(a:nth-child(1).active)::after {
+    left: calc(12.5% - 24px);
+    width: 48px;
+  }
+
+  .site-header .nav:has(a:nth-child(2).active)::after {
+    left: calc(37.5% - 59px);
+    width: 118px;
+  }
+
+  .site-header .nav:has(a:nth-child(3).active)::after {
+    left: calc(62.5% - 32px);
+    width: 64px;
+  }
+
+  .site-header .nav:has(a:nth-child(4).active)::after {
+    left: calc(87.5% - 32px);
+    width: 64px;
+  }
+
+  .site-header .nav:has(a:nth-child(1):hover)::after,
+  .site-header .nav:has(a:nth-child(1):focus-visible)::after {
+    left: calc(12.5% - 24px);
+    width: 48px;
+  }
+
+  .site-header .nav:has(a:nth-child(2):hover)::after,
+  .site-header .nav:has(a:nth-child(2):focus-visible)::after {
+    left: calc(37.5% - 59px);
+    width: 118px;
+  }
+
+  .site-header .nav:has(a:nth-child(3):hover)::after,
+  .site-header .nav:has(a:nth-child(3):focus-visible)::after {
+    left: calc(62.5% - 32px);
+    width: 64px;
+  }
+
+  .site-header .nav:has(a:nth-child(4):hover)::after,
+  .site-header .nav:has(a:nth-child(4):focus-visible)::after {
+    left: calc(87.5% - 32px);
+    width: 64px;
+  }
 }
 
 /* Research has a longer masthead word than the other pages. Preserve the same visual weight without
@@ -97,6 +200,12 @@ body::before {
   body::before {
     opacity: .075;
     background-size: 150px 150px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav::after {
+    transition: none !important;
   }
 }
 

@@ -4,11 +4,11 @@
 .research-page .shell { width: min(1480px, calc(100% - 52px)); }
 
 .research-hero {
-  min-height: 185px;
+  min-height: 168px;
   display: flex;
   align-items: end;
   border-bottom: 1px solid var(--line);
-  padding: 34px 0 18px;
+  padding: 24px 0 18px;
 }
 
 .research-hero-inner {
@@ -18,11 +18,19 @@
   align-items: end;
 }
 
-.research-hero .display-title {
+/* Deliberately not a .display-title: the global ScrollFloat treatment is too strong for this compact page masthead. */
+.research-hero-title {
   margin: 0;
-  font-size: clamp(3.4rem, 6.4vw, 6.8rem);
+  font-family: var(--display);
+  font-size: clamp(2.75rem, 4.45vw, 4.9rem);
+  font-weight: 400;
   line-height: .88;
-  letter-spacing: -.055em;
+  letter-spacing: -.052em;
+  text-transform: uppercase;
+}
+
+.research-hero .kicker {
+  margin-top: 12px;
 }
 
 .research-hero-meta {
@@ -246,10 +254,27 @@
 
 .work-paired {
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto auto;
 }
-.work-paired .work-card-media { min-height: 220px; overflow: hidden; border-bottom: 1px solid var(--line); }
-.work-paired .work-card-media img { width:100%; height:100%; display:block; object-fit:cover; }
+.work-paired .work-card-media {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.045), transparent 45%),
+    #050505;
+}
+.work-paired .work-card-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 430px;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+.work-mfc .work-card-media { min-height: 300px; }
 
 .academic-strip {
   display: grid;
@@ -297,7 +322,7 @@
 @media (max-width: 700px) {
   .research-page .shell { width: min(100% - 28px, 1480px); }
   .research-hero { min-height: 150px; padding-top: 22px; }
-  .research-hero .display-title { font-size: clamp(3.2rem, 16vw, 5.2rem); }
+  .research-hero-title { font-size: clamp(2.75rem, 14vw, 4.35rem); }
   .research-feature-media { min-height: 300px; }
   .research-feature-copy { padding: 28px 18px 34px; }
   .research-feature-copy h2 { font-size: clamp(3rem, 15vw, 4.8rem); }
@@ -308,4 +333,5 @@
   .research-work-grid,.academic-strip,.research-skills { grid-template-columns: 1fr; }
   .work-card { min-height: 190px; }
   .work-card.media { min-height: 260px; }
+  .work-paired .work-card-media { min-height: 300px; }
 }

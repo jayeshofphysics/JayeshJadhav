@@ -194,6 +194,25 @@ body::before {
     padding-inline: 15px !important;
     font-size: .64rem !important;
   }
+
+  /* Keep the compact one-view project wall, but restore the normal section-heading scale. */
+  .research-page main > .research-section:nth-of-type(3) .research-section-head {
+    margin-bottom: 12px !important;
+  }
+
+  .research-page main > .research-section:nth-of-type(3) .research-section-head h2 {
+    font-size: clamp(2.6rem, 4.3vw, 4.9rem) !important;
+    line-height: .9 !important;
+  }
+
+  /* Reframe the source photographs around the visually important experiment hardware. */
+  .research-page main > .research-section:nth-of-type(3) .work-pani .work-card-media img {
+    object-position: 70% 52% !important;
+  }
+
+  .research-page main > .research-section:nth-of-type(3) .work-signal .work-card-media img {
+    object-position: 50% 70% !important;
+  }
 }
 
 @media (max-width: 760px) {

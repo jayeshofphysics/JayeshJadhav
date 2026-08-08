@@ -1,4 +1,4 @@
-/* Contact page: editorial message with an attractive vertical contact panel. */
+/* Contact page: editorial message with a compact visual contact panel. */
 .contact-page {
   align-items: stretch;
   min-height: 100svh;
@@ -14,9 +14,7 @@
   align-items: center;
 }
 
-.contact-copy {
-  min-width: 0;
-}
+.contact-copy { min-width: 0; }
 
 .contact-title {
   max-width: 1080px;
@@ -31,18 +29,16 @@
   line-height: 1.55;
 }
 
-.contact-mail {
-  margin-top: 30px;
-}
+.contact-mail { margin-top: 30px; }
 
 .contact-panel {
   position: relative;
   padding: clamp(26px, 3vw, 42px);
-  border: 1px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255,255,255,.12);
   background:
-    radial-gradient(circle at 82% 12%, rgba(140, 161, 255, .16), transparent 30%),
-    linear-gradient(145deg, rgba(255, 255, 255, .035), rgba(255, 255, 255, .008));
-  box-shadow: 0 34px 90px rgba(0, 0, 0, .32);
+    radial-gradient(circle at 82% 12%, rgba(140,161,255,.16), transparent 30%),
+    linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008));
+  box-shadow: 0 34px 90px rgba(0,0,0,.32);
 }
 
 .contact-panel::before {
@@ -91,7 +87,7 @@
   position: relative;
   display: grid;
   min-height: 112px;
-  grid-template-columns: 38px 1fr auto;
+  grid-template-columns: 44px 1fr auto;
   gap: 18px;
   align-items: center;
   padding: 20px 8px;
@@ -101,18 +97,16 @@
   text-decoration: none;
 }
 
-.contact-links a:last-child {
-  border-bottom: 1px solid var(--line);
-}
+.contact-links a:last-child { border-bottom: 1px solid var(--line); }
 
 .contact-links a::before {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(140, 161, 255, .12), rgba(199, 255, 229, .035), transparent 75%);
+  background: linear-gradient(90deg, rgba(140,161,255,.12), rgba(199,255,229,.035), transparent 75%);
   content: "";
   opacity: 0;
   transform: translateX(-14px);
-  transition: opacity 240ms ease, transform 360ms cubic-bezier(.22, .75, .2, 1);
+  transition: opacity 240ms ease, transform 360ms cubic-bezier(.22,.75,.2,1);
 }
 
 .contact-links a:hover::before,
@@ -121,17 +115,49 @@
   transform: translateX(0);
 }
 
-.contact-number,
+.contact-symbol,
 .contact-link-copy,
 .contact-arrow {
   position: relative;
   z-index: 1;
 }
 
-.contact-number {
+/* Replacing numbers with recognisable symbols makes the panel scannable at a glance. */
+.contact-symbol {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%;
   color: var(--accent);
-  font-size: .62rem;
-  letter-spacing: .12em;
+  font-size: .82rem;
+  line-height: 1;
+  transition: border-color 220ms ease, color 220ms ease, background 220ms ease, transform 220ms ease;
+}
+
+.contact-symbol svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-symbol svg .contact-symbol-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.contact-symbol-linkedin {
+  border-radius: 7px;
+  font-family: Arial, sans-serif;
+  font-size: .84rem;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-transform: lowercase;
 }
 
 .contact-link-copy {
@@ -164,7 +190,7 @@
   width: 42px;
   height: 42px;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 50%;
   color: var(--text);
   font-size: 1rem;
@@ -178,12 +204,20 @@
   color: inherit;
 }
 
+.contact-links a:hover .contact-symbol,
+.contact-links a:focus-visible .contact-symbol {
+  border-color: var(--accent);
+  background: rgba(140,161,255,.08);
+  color: var(--text);
+  transform: scale(1.06);
+}
+
 .contact-links a:hover .contact-arrow,
 .contact-links a:focus-visible .contact-arrow {
   border-color: var(--accent-2);
   background: var(--accent-2);
   color: var(--bg);
-  transform: translate(4px, -4px);
+  transform: translate(4px,-4px);
 }
 
 .contact-links a:focus-visible {
@@ -191,21 +225,18 @@
   outline-offset: 5px;
 }
 
-/* Email is the primary direct channel, so it receives a subtle permanent emphasis. */
+/* Email remains the primary channel, with a restrained permanent emphasis. */
 .contact-links .contact-email-link {
-  background: linear-gradient(90deg, rgba(140, 161, 255, .10), rgba(199, 255, 229, .035), transparent 78%);
+  background: linear-gradient(90deg, rgba(140,161,255,.10), rgba(199,255,229,.035), transparent 78%);
 }
 
-.contact-links .contact-email-link .contact-link-copy small {
+.contact-links .contact-email-link .contact-link-copy small { color: var(--accent-2); }
+.contact-links .contact-email-link .contact-arrow { border-color: rgba(199,255,229,.45); }
+.contact-links .contact-email-link .contact-symbol {
+  border-color: rgba(199,255,229,.45);
   color: var(--accent-2);
 }
 
-.contact-links .contact-email-link .contact-arrow {
-  border-color: rgba(199, 255, 229, .45);
-}
-
-/* Desktop one-view composition: the full message, email and all direct channels remain visible
-   without needing an extra scroll on normal laptop/desktop viewports. */
 @media (min-width: 1001px) {
   .contact-page {
     min-height: 100svh;
@@ -214,14 +245,14 @@
 
   .contact-layout {
     min-height: calc(100svh - 140px);
-    grid-template-columns: minmax(0, 1.14fr) minmax(360px, .86fr);
-    gap: clamp(44px, 5.5vw, 92px);
+    grid-template-columns: minmax(0,1.14fr) minmax(360px,.86fr);
+    gap: clamp(44px,5.5vw,92px);
     align-items: center;
   }
 
   .contact-title {
     max-width: 900px;
-    font-size: clamp(3.7rem, 6.25vw, 6.85rem);
+    font-size: clamp(3.7rem,6.25vw,6.85rem);
     line-height: .86;
   }
 
@@ -234,35 +265,27 @@
 
   .contact-mail {
     margin-top: 18px;
-    font-size: clamp(1rem, 1.45vw, 1.45rem);
+    font-size: clamp(1rem,1.45vw,1.45rem);
   }
 
-  .contact-panel {
-    padding: 24px 30px;
-  }
-
-  .contact-panel::before {
-    left: 30px;
-  }
-
-  .contact-panel-heading {
-    margin-bottom: 14px;
-  }
+  .contact-panel { padding: 24px 30px; }
+  .contact-panel::before { left: 30px; }
+  .contact-panel-heading { margin-bottom: 14px; }
 
   .contact-links a {
     min-height: 78px;
-    grid-template-columns: 32px 1fr auto;
-    gap: 15px;
+    grid-template-columns: 40px 1fr auto;
+    gap: 14px;
     padding: 12px 6px;
   }
 
-  .contact-link-copy {
-    gap: 5px;
+  .contact-symbol {
+    width: 34px;
+    height: 34px;
   }
 
-  .contact-link-copy strong {
-    font-size: clamp(1.25rem, 1.6vw, 1.65rem);
-  }
+  .contact-link-copy { gap: 5px; }
+  .contact-link-copy strong { font-size: clamp(1.25rem,1.6vw,1.65rem); }
 
   .contact-arrow {
     width: 36px;
@@ -271,61 +294,45 @@
 }
 
 @media (max-width: 1000px) {
-  .contact-page {
-    padding-top: 130px;
-  }
-
+  .contact-page { padding-top: 130px; }
   .contact-layout {
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 74px;
   }
-
-  .contact-panel {
-    width: 100%;
-  }
+  .contact-panel { width: 100%; }
 }
 
 @media (max-width: 560px) {
-  .contact-title {
-    font-size: clamp(3rem, 14vw, 5.1rem);
-  }
-
+  .contact-title { font-size: clamp(3rem,14vw,5.1rem); }
   .contact-mail {
     overflow-wrap: anywhere;
     font-size: 1.08rem;
   }
-
-  .contact-panel {
-    padding: 24px 18px;
-  }
-
-  .contact-panel::before {
-    left: 18px;
-  }
-
+  .contact-panel { padding: 24px 18px; }
+  .contact-panel::before { left: 18px; }
   .contact-panel-heading {
     align-items: start;
     flex-direction: column;
     gap: 8px;
   }
-
   .contact-panel-heading p {
     max-width: none;
     text-align: left;
   }
-
   .contact-links a {
     min-height: 88px;
-    grid-template-columns: 28px 1fr auto;
-    gap: 12px;
+    grid-template-columns: 38px 1fr auto;
+    gap: 11px;
   }
-
+  .contact-symbol {
+    width: 32px;
+    height: 32px;
+  }
   .contact-link-copy small {
     white-space: normal;
     overflow-wrap: anywhere;
   }
-
   .contact-arrow {
     width: 36px;
     height: 36px;
@@ -334,7 +341,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .contact-links a::before,
-  .contact-arrow {
-    transition: none;
-  }
+  .contact-symbol,
+  .contact-arrow { transition: none; }
 }

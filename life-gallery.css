@@ -118,6 +118,74 @@
   transform: translateY(-7px) scale(1.012);
 }
 
+/* Reusable visual symbols echo the contact-page icon language without making the hobby page busy. */
+.hobby-card-top {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 11px;
+}
+
+.hobby-symbol {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%;
+  background: rgba(255,255,255,.015);
+  color: var(--accent);
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.hobby-symbol svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.55;
+}
+
+.hobby-card-top .card-no {
+  margin: 0;
+}
+
+.hobby-achievements-section .card:hover .hobby-symbol {
+  border-color: rgba(199,255,229,.48);
+  background: rgba(199,255,229,.045);
+  color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+.section-no-with-symbol {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.section-mini-symbol {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+  color: var(--accent);
+}
+
+.section-mini-symbol svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.55;
+}
+
 /* Keep animated display headings from wrapping inside words. Both headings already contain deliberate <br> breaks. */
 .life-section .section-title,
 .hobby-achievements-section .section-title {
@@ -170,7 +238,7 @@
   }
 
   .hobby-achievements-section .card h3 {
-    margin: 30px 0 12px;
+    margin: 20px 0 12px;
     font-size: clamp(1.18rem, 1.55vw, 1.72rem);
     line-height: 1.04;
   }
@@ -214,7 +282,8 @@
 @media (prefers-reduced-motion: reduce) {
   .life-gallery,
   .life-card img,
-  .life-gallery-button {
+  .life-gallery-button,
+  .hobby-symbol {
     scroll-behavior: auto;
     transition: none;
   }

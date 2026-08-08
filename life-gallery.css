@@ -118,6 +118,73 @@
   transform: translateY(-7px) scale(1.012);
 }
 
+/* Keep animated display headings from wrapping inside words. Both headings already contain deliberate <br> breaks. */
+.life-section .section-title,
+.hobby-achievements-section .section-title {
+  white-space: nowrap;
+}
+
+@media (min-width: 1001px) {
+  /* Give the Personal Moments title enough room to preserve complete words. */
+  .life-section .section-head {
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  }
+
+  .life-section .section-title {
+    font-size: clamp(3rem, 5vw, 5.6rem);
+    line-height: .9;
+  }
+
+  /* One-view achievement wall: heading, intro and all four cards fit in a normal desktop viewport. */
+  .hobby-achievements-section {
+    display: flex;
+    min-height: 100svh;
+    align-items: center;
+    padding: 96px 0 34px;
+  }
+
+  .hobby-achievements-section .section-head {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, .8fr);
+    gap: 40px;
+    margin-bottom: 26px;
+  }
+
+  .hobby-achievements-section .section-title {
+    font-size: clamp(3rem, 4.65vw, 5.25rem);
+    line-height: .88;
+  }
+
+  .hobby-achievements-section .section-intro {
+    max-width: 480px;
+    font-size: .92rem;
+    line-height: 1.45;
+  }
+
+  .hobby-achievements-section .card-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hobby-achievements-section .card {
+    min-height: 245px;
+    padding: 22px;
+  }
+
+  .hobby-achievements-section .card h3 {
+    margin: 30px 0 12px;
+    font-size: clamp(1.18rem, 1.55vw, 1.72rem);
+    line-height: 1.04;
+  }
+
+  .hobby-achievements-section .card p {
+    font-size: .8rem;
+    line-height: 1.4;
+  }
+
+  .hobby-achievements-section .card .micro {
+    padding-top: 16px;
+  }
+}
+
 @media (max-width: 760px) {
   .life-gallery-toolbar {
     min-height: 58px;
@@ -136,6 +203,11 @@
   .life-gallery-button {
     width: 38px;
     height: 38px;
+  }
+
+  .life-section .section-title,
+  .hobby-achievements-section .section-title {
+    white-space: normal;
   }
 }
 

@@ -191,6 +191,72 @@
   outline-offset: 5px;
 }
 
+/* Desktop one-view composition: the full message, email and all direct channels remain visible
+   without needing an extra scroll on normal laptop/desktop viewports. */
+@media (min-width: 1001px) {
+  .contact-page {
+    min-height: 100svh;
+    padding: 112px 0 28px;
+  }
+
+  .contact-layout {
+    min-height: calc(100svh - 140px);
+    grid-template-columns: minmax(0, 1.14fr) minmax(360px, .86fr);
+    gap: clamp(44px, 5.5vw, 92px);
+    align-items: center;
+  }
+
+  .contact-title {
+    max-width: 900px;
+    font-size: clamp(3.7rem, 6.25vw, 6.85rem);
+    line-height: .86;
+  }
+
+  .contact-note {
+    max-width: 600px;
+    margin-top: 24px;
+    font-size: .88rem;
+    line-height: 1.48;
+  }
+
+  .contact-mail {
+    margin-top: 18px;
+    font-size: clamp(1rem, 1.45vw, 1.45rem);
+  }
+
+  .contact-panel {
+    padding: 26px 30px;
+  }
+
+  .contact-panel::before {
+    left: 30px;
+  }
+
+  .contact-panel-heading {
+    margin-bottom: 16px;
+  }
+
+  .contact-links a {
+    min-height: 88px;
+    grid-template-columns: 32px 1fr auto;
+    gap: 15px;
+    padding: 14px 6px;
+  }
+
+  .contact-link-copy {
+    gap: 5px;
+  }
+
+  .contact-link-copy strong {
+    font-size: clamp(1.3rem, 1.7vw, 1.75rem);
+  }
+
+  .contact-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}
+
 @media (max-width: 1000px) {
   .contact-page {
     padding-top: 130px;

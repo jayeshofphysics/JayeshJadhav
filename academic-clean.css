@@ -1,8 +1,7 @@
-/* Academic development — compact expandable timeline.
-   The overview stays visually quiet while every original detail remains available on demand. */
+/* Academic development — compact expandable timeline with a clearly separated research toolkit. */
 
 .academic-development-section .research-section-head {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .academic-development-section .research-section-head p {
@@ -92,13 +91,76 @@
   line-height: 1.5;
 }
 
+/* The skills no longer read as a continuation of the timeline. They form their own compact toolkit block. */
+.research-toolkit {
+  margin-top: clamp(52px, 6vw, 82px);
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+
+.research-toolkit-head {
+  display: grid;
+  grid-template-columns: minmax(260px,.9fr) minmax(320px,1.1fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.research-toolkit-head h3 {
+  margin: 7px 0 0;
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.1vw, 3.15rem);
+  font-weight: 400;
+  letter-spacing: -.045em;
+  line-height: .95;
+  text-transform: uppercase;
+}
+
+.research-toolkit-head p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
 .academic-development-section .research-skills {
-  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 26px;
+  margin-top: 0;
+  border: 0;
+}
+
+.academic-development-section .research-skill {
+  min-height: 0;
+  padding: 16px 4px 8px;
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,.14);
+  background: transparent;
+}
+
+.academic-development-section .research-skill h3 {
+  margin: 0 0 9px;
+  color: var(--accent);
+  font-family: var(--body);
+  font-size: .61rem;
+  font-weight: 500;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.academic-development-section .research-skill p {
+  max-width: 310px;
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.45;
 }
 
 @media (min-width: 1001px) {
   .academic-development-section {
-    padding: 46px 0 54px;
+    padding: 46px 0 60px;
   }
 
   .academic-development-section .research-section-head {
@@ -109,15 +171,6 @@
   .academic-development-section .research-section-head h2 {
     font-size: clamp(2.8rem, 4vw, 4.55rem);
     line-height: .9;
-  }
-
-  .academic-development-section .research-skills {
-    grid-template-columns: repeat(4,minmax(0,1fr));
-  }
-
-  .academic-development-section .research-skill {
-    min-height: 128px;
-    padding: 16px 18px;
   }
 }
 
@@ -149,6 +202,16 @@
   .academic-entry-body p {
     grid-column: 2;
   }
+
+  .research-toolkit-head {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .academic-development-section .research-skills {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 22px 28px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -176,5 +239,23 @@
 
   .academic-entry-body p {
     font-size: .8rem;
+  }
+
+  .research-toolkit {
+    margin-top: 44px;
+    padding-top: 24px;
+  }
+
+  .research-toolkit-head h3 {
+    font-size: 2rem;
+  }
+
+  .academic-development-section .research-skills {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .academic-development-section .research-skill {
+    padding: 14px 2px 4px;
   }
 }

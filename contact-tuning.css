@@ -191,6 +191,19 @@
   outline-offset: 5px;
 }
 
+/* Email is the primary direct channel, so it receives a subtle permanent emphasis. */
+.contact-links .contact-email-link {
+  background: linear-gradient(90deg, rgba(140, 161, 255, .10), rgba(199, 255, 229, .035), transparent 78%);
+}
+
+.contact-links .contact-email-link .contact-link-copy small {
+  color: var(--accent-2);
+}
+
+.contact-links .contact-email-link .contact-arrow {
+  border-color: rgba(199, 255, 229, .45);
+}
+
 /* Desktop one-view composition: the full message, email and all direct channels remain visible
    without needing an extra scroll on normal laptop/desktop viewports. */
 @media (min-width: 1001px) {
@@ -225,7 +238,7 @@
   }
 
   .contact-panel {
-    padding: 26px 30px;
+    padding: 24px 30px;
   }
 
   .contact-panel::before {
@@ -233,14 +246,14 @@
   }
 
   .contact-panel-heading {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .contact-links a {
-    min-height: 88px;
+    min-height: 78px;
     grid-template-columns: 32px 1fr auto;
     gap: 15px;
-    padding: 14px 6px;
+    padding: 12px 6px;
   }
 
   .contact-link-copy {
@@ -248,12 +261,12 @@
   }
 
   .contact-link-copy strong {
-    font-size: clamp(1.3rem, 1.7vw, 1.75rem);
+    font-size: clamp(1.25rem, 1.6vw, 1.65rem);
   }
 
   .contact-arrow {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -303,9 +316,14 @@
   }
 
   .contact-links a {
-    min-height: 96px;
+    min-height: 88px;
     grid-template-columns: 28px 1fr auto;
     gap: 12px;
+  }
+
+  .contact-link-copy small {
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .contact-arrow {

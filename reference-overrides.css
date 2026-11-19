@@ -1,0 +1,24 @@
+/* Keep Jayesh's face in frame as the reference portrait changes aspect ratio. */
+.hero-portrait-link img,
+.portrait-face img,
+.bio-portrait img {
+  object-position: 50% 23%;
+}
+
+/* Project stills have the same hover frame as the reference. */
+.project-image img[src$="raman.svg"] {
+  object-fit: contain;
+  background: #111;
+}
+
+/* The opening line overlaps the portrait. Preserve contrast on small screens. */
+@media (max-width: 700px) {
+  .hero-portrait-link img,
+  .portrait-face-front img {
+    mask-image: linear-gradient(to bottom, transparent, #000 23px);
+  }
+
+  .portrait-face-front {
+    background: var(--surface-strong);
+  }
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" class="fJfFLG_variable">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Jayesh Jadhav’s journey from village hills to experimental physics and quantum hardware in Mumbai.">
+  <meta property="og:title" content="World of Jayesh | A journey through experimental physics">
+  <meta property="og:description" content="An illustrated world with chapters on trekking, photography, and experimental physics.">
+  <title>World of Jayesh | A journey through experimental physics</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="world.css">
+  <script src="world.js" defer></script>
+</head>
+<body class="world-page">
+  <main class="jayesh-world" id="world-main">
+    <div class="world-stage" aria-hidden="true"><canvas id="landscape"></canvas></div>
+    <div class="world-interface" data-entered="false">
+      <header class="world-header">
+        <nav aria-label="World controls">
+          <button id="journey-button" type="button" aria-expanded="false" aria-controls="journey-map">The journey <span aria-hidden="true">↗︎</span></button>
+          <a href="../">Portfolio <span aria-hidden="true">↗︎</span></a>
+        </nav>
+      </header>
+      <section class="world-intro" aria-labelledby="world-title">
+        <h1 id="world-title">WORLD OF <span>JAYESH.</span></h1>
+        <p>Village hills, Mumbai, and the physics lab.<br> A few places, a lot of questions.<br>Come along for the ride.</p>
+        <div class="world-intro-actions">
+          <button class="world-launch" id="world-launch" type="button" aria-keyshortcuts="Space" aria-haspopup="dialog" aria-controls="world-mode-dialog">
+            Begin the journey <kbd aria-hidden="true">Space</kbd><span aria-hidden="true">↗︎</span>
+          </button>
+        </div>
+      </section>
+      <section class="world-location" hidden>
+        <span class="world-pin" aria-hidden="true"></span>
+        <div><strong id="world-place"></strong><span id="world-place-detail"></span></div>
+      </section>
+      <div class="world-dashboard" hidden>
+        <span class="world-route-dot" aria-hidden="true"></span>
+        <div><strong id="world-progress">01 <small>/ 06</small></strong><span>Chapter</span></div>
+      </div>
+      <div class="world-ride-controls" hidden>
+        <button id="previous-stop" type="button" aria-label="Previous chapter">←</button>
+        <button id="ride-toggle" type="button">Autopilot</button>
+        <button id="next-stop" type="button" aria-label="Next chapter">→</button>
+      </div>
+      <div class="world-touch" hidden aria-label="Manual controls">
+        <div><button type="button" data-direction="left" aria-label="Move left">←</button><button type="button" data-direction="right" aria-label="Move right">→</button></div>
+        <div><button type="button" data-direction="down" aria-label="Move back">↓</button><button type="button" data-direction="up" aria-label="Move forward">↑</button></div>
+      </div>
+      <section class="world-dialogue" hidden aria-labelledby="world-chapter-title">
+        <div class="world-dialogue-heading"><strong id="world-chapter-label"></strong><span>Illustrated journey</span></div>
+        <h2 id="world-chapter-title" aria-live="polite"></h2>
+        <p id="world-chapter-text"></p>
+        <div class="world-dialogue-footer">
+          <button id="hide-chapter" type="button">Back to the road</button>
+          <button id="continue-chapter" type="button">Next chapter <span aria-hidden="true">↗︎</span></button>
+        </div>
+      </section>
+      <footer class="world-bottom">
+        <div class="world-help" id="world-help"></div>
+        <div>
+          <button type="button" id="chapter-button" hidden>Show chapter</button>
+          <button type="button" id="quality-button" aria-pressed="false">Quality: light</button>
+          <a id="read-story" href="#journey-story">Read story</a>
+        </div>
+      </footer>
+    </div>
+    <dialog id="world-mode-dialog" class="world-mode-dialog" aria-labelledby="world-mode-title">
+      <form method="dialog"><button class="world-mode-close" type="submit" aria-label="Close journey options">×</button></form>
+      <h2 id="world-mode-title">How would you like to explore?</h2>
+      <button type="button" class="world-mode" data-mode="manual"><span>Explore by yourself<small>Move through chapters · WASD / arrow keys</small></span><span aria-hidden="true">↗︎</span></button>
+      <button type="button" class="world-mode" data-mode="auto"><span>Autopilot<small>Sit back · stop at every chapter</small></span><span aria-hidden="true">↗︎</span></button>
+      <p class="world-mode-hint">Or press Space to explore by yourself.</p>
+    </dialog>
+    <dialog class="world-map-panel" id="journey-map" aria-labelledby="journey-map-title">
+      <div class="world-map-heading">
+        <h2 id="journey-map-title">The journey</h2>
+        <form method="dialog"><button type="submit" aria-label="Close journey chapters">×</button></form>
+      </div>
+      <p>Choose a chapter to explore.</p>
+      <ol id="world-map-list"></ol>
+    </dialog>
+    <dialog class="world-reading-overlay" id="story-dialog" aria-labelledby="journey-heading">
+      <form method="dialog"><button class="world-read-close" type="submit">← Back to the journey</button></form>
+    </dialog>
+    <section class="world-readable" id="journey-story" aria-labelledby="journey-heading">
+      <a class="story-return" href="../">← Back to portfolio</a>
+      <h2 id="journey-heading">A ride through my journey.</h2>
+      <p>From the hills to the physics lab, with stops along the way. The landscape is an illustration.</p>
+      <article data-place="Village hills" data-detail="Home · The outdoors">
+        <p class="chapter-meta">Home · The outdoors</p>
+        <h3>Where the trail begins.</h3>
+        <p>I grew up in a village near hills. I still like getting outside to trek or take photographs.</p>
+      </article>
+      <article data-place="Lovely Professional University" data-detail="2022–2023 · Materials research">
+        <p class="chapter-meta">2022–2023 · Materials research</p>
+        <h3>An early experiment in shielding.</h3>
+        <p>I studied a polyaniline and magnetite composite for electromagnetic interference shielding. The project brought materials fabrication and characterization together.</p>
+      </article>
+      <article data-place="Behind the lens" data-detail="Photography · IIT Bombay">
+        <p class="chapter-meta">Photography · IIT Bombay</p>
+        <h3>Looking more closely.</h3>
+        <p>Photography gives me a reason to slow down and pay attention to light. I was part of IIT Bombay’s photography team at Inter IIT 7.0 in 2024.</p>
+        <figure><img src="woodland.webp" alt="Light falling across a tree-lined road" loading="lazy" width="213" height="320"><figcaption>From Jayesh’s photography gallery</figcaption></figure>
+      </article>
+      <article data-place="BARC and INDUS-2" data-detail="2025 · High-pressure spectroscopy">
+        <p class="chapter-meta">2025 · High-pressure spectroscopy</p>
+        <h3>Watching a material under pressure.</h3>
+        <p>At BARC, I studied the Raman spectrum of Na₂Cu₂TeO₆ in a diamond-anvil cell. Related high-pressure X-ray diffraction measurements took me to INDUS-2 at RRCAT.</p>
+      </article>
+      <article data-place="NCPRE · IIT Bombay" data-detail="2025–2026 · MSc thesis">
+        <p class="chapter-meta">2025–2026 · MSc thesis</p>
+        <h3>Getting light through an electrode.</h3>
+        <p>My MSc research looked at transparent electrodes for tandem solar cells. I modelled and studied thin layers of indium zinc oxide and silver to balance transmission and conductivity.</p>
+      </article>
+      <article data-place="IIT Bombay" data-detail="2026–present · Quantum hardware">
+        <p class="chapter-meta">2026–present · Quantum hardware</p>
+        <h3>Making connections at a smaller scale.</h3>
+        <p>As a Junior Research Fellow, I work on indium flip-chip interconnects and 3D integration for quantum devices.</p>
+        <figure><img src="city.webp" alt="Figures on an elevated walkway with high-rise buildings in the distance" loading="lazy" width="320" height="193"><figcaption>From Jayesh’s photography gallery</figcaption></figure>
+      </article>
+    </section>
+    <noscript><style>.world-interface,.world-stage{display:none}.world-readable{display:block;padding:2rem 6vw}</style></noscript>
+  </main>
+</body>
+</html>

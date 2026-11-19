@@ -1185,38 +1185,31 @@
               </svg>
             </a>
           </div>
-          <p id="research-crowd-description" class="sr-only">
-            An illustrated crowd passes a stationary figure in a street scene.
-          </p>
-          <button
-            type="button"
-            class="footer-crowd-scene"
-            aria-label="JAYESH. Pause crowd animation"
-            aria-describedby="research-crowd-description"
-            aria-pressed="false"
-            data-cast-size="105"
-            data-ready="false"
-          >
-            <span class="footer-crowd-name" aria-hidden="true">JAYESH.</span>
-            <canvas
-              class="footer-crowd-layer footer-crowd-back"
-              aria-hidden="true"
-            ></canvas>
-            <img
-              class="footer-crowd-portrait"
-              src="../assets/reference-crowd/jayesh-standing.webp"
-              alt=""
-              width="360"
-              height="1080"
-              loading="lazy"
-            />
-            <canvas
-              class="footer-crowd-layer footer-crowd-front"
-              aria-hidden="true"
-            ></canvas>
-          </button>
-          <div class="footer-scene-bottom wrap">
-            <small>Finally, some traffic on my website.</small>
+          <div class="footer-exhibit" id="footer-quote">
+            <figure class="footer-quotation wrap">
+              <blockquote>
+                <p>“It is by logic that we prove, but by <em>intuition</em> that we discover.”</p>
+              </blockquote>
+              <figcaption>Henri Poincaré</figcaption>
+            </figure>
+            <p id="physicist-crowd-description" class="sr-only">
+              Cartoons of Henri Poincaré, Albert Einstein, Marie Curie, C. V. Raman,
+              Satyendra Nath Bose, Richard Feynman, Emmy Noether, and Stephen Hawking
+              cross the scene.
+            </p>
+            <button
+              type="button"
+              class="footer-crowd-scene"
+              aria-label="Pause physicist animation"
+              aria-describedby="physicist-crowd-description"
+              aria-pressed="false"
+              data-ready="false"
+              disabled
+            >
+              <canvas class="footer-crowd-layer footer-crowd-back" aria-hidden="true"></canvas>
+              <canvas class="footer-crowd-layer footer-crowd-front" aria-hidden="true"></canvas>
+              <span class="footer-crowd-control" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
       </footer>

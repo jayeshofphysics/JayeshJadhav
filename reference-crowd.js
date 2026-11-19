@@ -4,84 +4,75 @@
   const scene = document.querySelector(".footer-crowd-scene");
   if (!scene) return;
 
-  const portrait = scene.querySelector(".footer-crowd-portrait");
-  const name = scene.querySelector(".footer-crowd-name").textContent.trim();
-  const canvases = [...scene.querySelectorAll(".footer-crowd-layer")];
-  const contexts = canvases.map(canvas => canvas.getContext("2d"));
-  if (contexts.some(context => !context)) {
-    scene.disabled = true;
-    return;
-  }
-
-  const characters = 105;
-  const columns = 5;
-  const rows = 3;
-  const sheetSize = columns * rows;
-  const spriteDirectory = new URL("assets/reference-crowd/", document.currentScript.src);
   const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
-  let sheets;
-  let sprites = [];
-  let paused = false;
-  let inView = false;
+  const spriteDirectory = new URL("assets/physicist-crowd/", document.currentScript.src);
+  const lanes = [
+    {
+      canvas: scene.querySelector(".footer-crowd-back"),
+      names: ["poincare", "raman", "feynman", "noether"],
+      direction: 1,
+      size: 0.89,
+      floor: 0.27,
+      pace: 0.04,
+      minimumSpeed: 43
+    },
+    {
+      canvas: scene.querySelector(".footer-crowd-front"),
+      names: ["einstein", "curie", "bose", "hawking"],
+      direction: -1,
+      size: 1,
+      floor: 0.045,
+      pace: 0.05,
+      minimumSpeed: 58
+    }
+  ];
+
   let width = 0;
   let height = 0;
-  let portraitHeight = 0;
   let pixelRatio = 1;
-  let edgeBuffer = 0;
-  let travelWidth = 0;
   let elapsed = 0;
   let previousFrame = 0;
   let frame = 0;
+  let ready = false;
+  let failed = false;
+  let paused = false;
+  let inView = false;
 
-  // Preserve the spacing, cast order, and speed differences in the reference.
-  function variation(seed) {
-    const value = 43758.5453 * Math.sin(127.1 * seed + 311.7);
-    return value - Math.floor(value);
-  }
-
-  function scaleForCharacter(index) {
-    if (index >= 60 && index < 75) return 0.7;
-    if (index >= 75 && index < 90) return 0.95;
-    return 1;
+  for (const lane of lanes) {
+    lane.context = lane.canvas?.getContext("2d");
+    if (!lane.context) failed = true;
   }
 
   function render() {
-    for (const context of contexts) {
+    const reduced = motionPreference.matches;
+
+    for (const lane of lanes) {
+      const { context, sprites } = lane;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
       context.clearRect(0, 0, width, height);
-    }
 
-    for (const sprite of sprites) {
-      const distance = sprite.phase + elapsed * sprite.speed / 10;
-      const loops = Math.floor(distance);
-      const progress = distance - loops;
-      const character = (sprite.cell + 37 * loops) % characters;
-      const sheet = sheets[Math.floor(character / sheetSize)];
-      const cell = character % sheetSize;
-      const scale = scaleForCharacter(character);
-      const drawWidth = sprite.width * scale;
-      const drawHeight = sprite.height * scale;
-      const offset = sprite.direction === 1 ? progress : 1 - progress;
-      const x = offset * travelWidth - edgeBuffer;
-      const step = (1 - Math.cos((elapsed * sprite.speed + 10 * sprite.phase) * Math.PI * 4)) * 5;
-      const y = sprite.baseline + sprite.height - drawHeight - step;
-      const context = contexts[sprite.layer];
+      sprites.forEach((sprite, index) => {
+        const slot = width / sprites.length;
+        const phase = (index + (lane.direction === 1 ? 0.48 : 0.76)) / sprites.length;
+        const progress = (phase + elapsed * lane.speed / lane.travelWidth) % 1;
+        const distance = lane.direction === 1 ? progress : 1 - progress;
+        const travelX = distance * lane.travelWidth - lane.edgeBuffer;
+        const staticOffset = slot * 0.21 * lane.direction;
+        const x = reduced ? (index + 0.5) * slot + staticOffset : travelX;
+        const scale = reduced ? Math.min(1, slot * 0.56 / sprite.width) : 1;
+        const step = reduced || sprite.name === "hawking" ? 0 :
+          (1 - Math.cos((elapsed * 1.6 + index * 0.27) * 2 * Math.PI)) * 1.5;
 
-      context.save();
-      context.translate(x, y);
-      context.scale(sprite.direction, 1);
-      context.drawImage(
-        sheet.image,
-        cell % columns * sheet.cellWidth,
-        Math.floor(cell / columns) * sheet.cellHeight,
-        sheet.cellWidth,
-        sheet.cellHeight,
-        -drawWidth / 2,
-        0,
-        drawWidth,
-        drawHeight
-      );
-      context.restore();
+        const drawWidth = sprite.width * scale;
+        const drawHeight = sprite.height * scale;
+        context.drawImage(
+          sprite.image,
+          x - drawWidth / 2,
+          sprite.baseline - drawHeight - step,
+          drawWidth,
+          drawHeight
+        );
+      });
     }
   }
 
@@ -96,7 +87,7 @@
     cancelAnimationFrame(frame);
     frame = 0;
     previousFrame = 0;
-    if (!sheets || !sprites.length) return;
+    if (!ready || !width || !height) return;
 
     render();
     if (inView && !document.hidden && !paused && !motionPreference.matches) {
@@ -105,88 +96,83 @@
   }
 
   function layout() {
-    if (!sheets) return;
+    if (!ready) return;
 
     const nextWidth = scene.clientWidth;
     const nextHeight = scene.clientHeight;
-    const nextPortraitHeight = portrait.getBoundingClientRect().height;
     const nextPixelRatio = Math.min(window.devicePixelRatio || 1, 2);
     if (!nextWidth || !nextHeight) return;
-    if (nextWidth === width && nextHeight === height &&
-        nextPortraitHeight === portraitHeight && nextPixelRatio === pixelRatio) return;
+    if (nextWidth === width && nextHeight === height && nextPixelRatio === pixelRatio) return;
 
     width = nextWidth;
     height = nextHeight;
-    portraitHeight = nextPortraitHeight;
     pixelRatio = nextPixelRatio;
-    for (const canvas of canvases) {
-      canvas.width = Math.round(width * pixelRatio);
-      canvas.height = Math.round(height * pixelRatio);
+    const standingHeight = Math.min(height * 0.65, width * 0.6, 290);
+
+    for (const lane of lanes) {
+      lane.canvas.width = Math.round(width * pixelRatio);
+      lane.canvas.height = Math.round(height * pixelRatio);
+
+      const floor = Math.max(9, height * lane.floor);
+      lane.sprites = lane.images.map(({ image, name }, index) => {
+        const ratio = image.naturalWidth / image.naturalHeight;
+        const stature = name === "hawking" ? 0.72 : 1 - (index % 3) * 0.024;
+        const spriteHeight = Math.min(standingHeight * lane.size * stature, width * 0.28 / ratio);
+        return {
+          image,
+          name,
+          width: spriteHeight * ratio,
+          height: spriteHeight,
+          baseline: height - floor - index % 3 * 3
+        };
+      });
+
+      // Give each silhouette its own interval and finish the wrap beyond the edge.
+      const widest = Math.max(...lane.sprites.map(sprite => sprite.width));
+      const minimumTrack = lane.sprites.length * (widest + 16);
+      lane.travelWidth = Math.max(width + widest + 24, minimumTrack);
+      lane.edgeBuffer = (lane.travelWidth - width) / 2;
+      lane.speed = Math.max(lane.minimumSpeed, width * lane.pace);
     }
 
-    const crowdScale = Math.min(1, portraitHeight / 310) || 1;
-    const relativeWidth = width / (1440 * crowdScale);
-    const backCount = width >= 600 ? 25 : Math.max(9, Math.round(25 * relativeWidth));
-    const frontCount = width >= 600 ? 16 : Math.max(6, Math.round(16 * relativeWidth));
-    const count = backCount + frontCount;
-
-    sprites = Array.from({ length: count }, (_, index) => {
-      const foreground = index >= backCount;
-      const trackIndex = foreground ? index - backCount : index;
-      const trackCount = foreground ? frontCount : backCount;
-      const characterHeight = (foreground ? 250 + 30 * variation(index + 8) :
-        170 + 35 * variation(index + 8)) * crowdScale;
-      const baseline = foreground
-        ? height - characterHeight + 30 * crowdScale + 15 * variation(index + 4)
-        : height - portraitHeight - 12 + 24 * variation(index + 4);
-
-      return {
-        cell: 37 * Math.floor(characters * index / count) % characters,
-        layer: foreground || trackIndex % 3 === 0 ? 1 : 0,
-        height: characterHeight,
-        width: 0.8 * characterHeight,
-        baseline,
-        phase: (trackIndex + 0.85 * variation(index + 41)) / trackCount,
-        speed: (foreground ? 1.05 : 0.7) * (0.88 + 0.24 * variation(index + 97)),
-        direction: foreground ? -1 : 1
-      };
-    }).sort((first, second) => first.baseline - second.baseline);
-
-    edgeBuffer = Math.max(...sprites.map(sprite => sprite.width));
-    travelWidth = width + 2 * edgeBuffer;
     syncAnimation();
   }
 
   function syncButton() {
     const reduced = motionPreference.matches;
-    scene.disabled = reduced;
+    scene.disabled = !ready || failed || reduced;
     scene.setAttribute("aria-pressed", String(paused || reduced));
-    const action = reduced ? "Crowd animation paused" :
-      paused ? "Resume crowd animation" : "Pause crowd animation";
-    scene.setAttribute("aria-label", `${name} ${action}`);
+    const action = failed ? "Physicist illustrations unavailable" :
+      !ready ? "Loading physicist illustrations" :
+      reduced ? "Physicist animation paused by reduced motion preference" :
+      paused ? "Resume physicist animation" : "Pause physicist animation";
+    scene.setAttribute("aria-label", action);
     syncAnimation();
   }
 
-  async function loadSprites() {
+  async function loadImages() {
     try {
-      const files = Array.from({ length: characters / sheetSize }, (_, index) => {
-        const image = new Image();
-        const filename = `crowd-${String(index + 1).padStart(2, "0")}.webp`;
-        image.src = new URL(filename, spriteDirectory);
-        return image.decode().then(() => ({
-          image,
-          cellWidth: image.naturalWidth / columns,
-          cellHeight: image.naturalHeight / rows
+      await Promise.all(lanes.map(async lane => {
+        lane.images = await Promise.all(lane.names.map(async name => {
+          const image = new Image();
+          image.src = new URL(`${name}.webp`, spriteDirectory);
+          await image.decode();
+          return { image, name };
         }));
-      });
+      }));
 
-      sheets = await Promise.all(files);
-      layout();
+      ready = true;
       scene.dataset.ready = "true";
+      syncButton();
+      layout();
     } catch {
-      scene.disabled = true;
+      failed = true;
+      syncButton();
     }
   }
+
+  syncButton();
+  if (failed) return;
 
   scene.addEventListener("click", () => {
     paused = !paused;
@@ -195,12 +181,11 @@
   motionPreference.addEventListener("change", syncButton);
   document.addEventListener("visibilitychange", syncAnimation);
   new ResizeObserver(layout).observe(scene);
-  portrait.addEventListener("load", layout);
 
   const loadingObserver = new IntersectionObserver(([entry]) => {
     if (!entry.isIntersecting) return;
     loadingObserver.disconnect();
-    loadSprites();
+    loadImages();
   }, { rootMargin: "500px" });
   loadingObserver.observe(scene);
 
@@ -208,6 +193,4 @@
     inView = entry.isIntersecting;
     syncAnimation();
   }, { rootMargin: "80px" }).observe(scene);
-
-  syncButton();
 })();

@@ -1,18 +1,35 @@
-# Jayesh Jadhav — Crowd Portfolio
+# Jayesh Jadhav — Video-reference Portfolio
 
-A distinct, animated research portfolio featuring an original illustrated crowd footer.
+A second, independent portfolio for an experimental physicist, built in the style of the shared Aswin portfolio video.
 
-Built as a lightweight static site with HTML, CSS and JavaScript, and optimized for GitHub Pages.
+## Design
 
-## Pages
+- Very dark editorial layout with compact floating navigation.
+- Code-textured full-screen hero and oversized experimental-physicist heading.
+- Three-column introduction, tech stack, stacked folder project cards, and curved research timeline.
+- Accessible project detail dialogs and simple contact mailto draft.
+- Black-and-white illustrated crowd footer, with stationary central researcher and separate animated rows.
 
-- `index.html` — main website
-- `styles.css` — responsive design
-- `script.js` — animated crowd, motion and interactions
-- `assets/` — illustrations, research imagery and downloadable CV
+The central illustration is an **original symbolic character**, **not an actual photograph or likeness** of Jayesh. Imagery and Raman chart are illustrative, not experimental measurements. The video is a visual reference; the source implementation and artwork are original.
 
-## Publish on GitHub Pages
+## Files
 
-In **Settings → Pages**, set **Build and deployment → Deploy from a branch → main / (root)**, then save. The live URL will be `https://jayeshofphysics.github.io/newwebsite/` after GitHub Pages deploys.
+- `index.html` — page markup
+- `styles.css` — responsive design and animations
+- `script.js` — navigation, project dialogs, form draft, and crowd animation
+- `assets/` — illustration/visual assets and CV
 
-This is separate from the original `JayeshJadhav` website. Artwork is illustrative, and the central character is symbolic rather than a portrait likeness.
+## Local preview
+
+Run `python -m http.server 8000` in the project root and visit `http://localhost:8000`.
+
+## GitHub Pages
+
+Deploy from `main` branch, `/ (root)`, in Settings → Pages. This project intentionally does not modify `jayeshofphysics/JayeshJadhav`.
+
+## Accessibility
+
+- Keyboard accessible navigation, menu, cards, and dialogs.
+- Crowd pause/resume, offscreen pausing and document visibility pausing.
+- `prefers-reduced-motion` support.
+- Mobile and tablet responsive layouts.

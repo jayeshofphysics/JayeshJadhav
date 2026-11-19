@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" fill="none">
+<defs><pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#fff" opacity=".15"/></pattern><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#262626"/><stop offset="1" stop-color="#080909"/></linearGradient></defs>
+<rect width="1200" height="880" fill="url(#a)"/><rect width="1200" height="880" fill="url(#dots)"/>
+<g stroke="#919191" opacity=".21"><path d="M132 100V700M273 100V700M414 100V700M555 100V700M696 100V700M837 100V700M978 100V700M1119 100V700"/><path d="M132 155H1125M132 255H1125M132 355H1125M132 455H1125M132 555H1125M132 655H1125"/></g>
+<path d="M132 690H1126M132 85V690" stroke="#fff" stroke-width="2" opacity=".55"/>
+<path d="M132 641L170 640 208 632 247 621 282 625 314 602 340 472 354 598 410 606 460 584 491 567 523 593 552 560 600 553 645 519 685 297 701 505 752 498 783 462 801 432 826 482 861 454 891 265 911 423 949 418 974 380 1002 349 1025 409 1063 374 1119 353" stroke="#ecff88" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M132 647L170 645 208 636 247 625 282 632 314 609 340 477 354 604 410 611 460 588 491 572 523 601 552 567 600 559 645 525 685 302 701 510 752 504 783 469 801 441 826 489 861 462 891 271 911 430 949 423 974 389 1002 353 1025 416 1063 381 1119 360" stroke="#ecff88" stroke-opacity=".25" stroke-width="18"/>
+<g fill="#fff" font-family="monospace" font-size="25" letter-spacing="2"><text x="135" y="68">PRESSURE / VIBRATIONS</text><text x="865" y="760">RAMAN SHIFT →</text><text x="70" y="350" transform="rotate(-90 70 350)">INTENSITY (a.u.)</text></g>
+<g fill="#ecff88"><circle cx="340" cy="472" r="8"/><circle cx="685" cy="297" r="8"/><circle cx="891" cy="265" r="8"/></g>
+<text x="132" y="822" fill="#aaa" font-size="21" font-family="monospace">ILLUSTRATIVE SPECTRUM · NOT EXPERIMENTAL DATA</text>
+</svg>

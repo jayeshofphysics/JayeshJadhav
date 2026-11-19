@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 470" fill="none">
+<!-- Original symbolic character; not a portrait likeness -->
+<g stroke="#161616" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M82 236L68 360 69 444Q91 462 115 445L124 341 141 447Q167 460 187 445L176 229Z" fill="#202020" stroke-width="7"/>
+  <path d="M69 435L62 450Q63 463 111 461L120 454 114 438Z" fill="#defa55" stroke-width="5"/>
+  <path d="M140 437L141 453Q151 466 199 461L199 452 186 436Z" fill="#defa55" stroke-width="5"/>
+  <path d="M68 459H119M142 460H200" stroke-width="5"/>
+  <path d="M84 177C57 170 41 186 30 221L7 297Q1 313 17 318Q32 321 38 302L74 235" fill="#fcfaf5" stroke-width="7"/>
+  <path d="M180 178C207 180 220 196 230 230L250 296Q255 313 240 318Q225 321 222 307L188 244" fill="#fcfaf5" stroke-width="7"/>
+  <path d="M34 288L27 302 13 301M226 301L241 302 242 294" stroke-width="4"/>
+  <path d="M78 172L101 163 160 161 184 175 199 260 64 260Z" fill="#1b1b1b" stroke-width="7"/>
+  <path d="M106 167L107 258M158 168L158 259" stroke="#fcfaf5" stroke-width="3" opacity=".78"/>
+  <path d="M111 166L130 201 152 166" fill="#faf9f3" stroke-width="5"/>
+  <path d="M102 179L76 196 95 243M162 179L188 195 170 245" stroke="#f3f1e9" stroke-width="4"/>
+  <path d="M125 192Q131 207 130 226" stroke="#171717" stroke-width="3"/>
+  <rect x="147" y="210" width="24" height="19" rx="2" fill="#defa55" stroke-width="3"/><text x="159" y="224" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#171717" stroke="none" font-weight="900">J.</text>
+  <path d="M108 125L107 163 128 181 153 163 151 124" fill="#fffdf6" stroke-width="6"/>
+  <path d="M92 73Q95 34 133 34Q170 34 171 78L165 115Q157 143 132 147Q107 140 99 112Z" fill="#fffdf6" stroke-width="7"/>
+  <path d="M89 86C75 66 84 39 98 26Q112 9 145 17C172 23 185 43 177 80L166 63Q149 63 137 49Q120 67 92 66Z" fill="#161616" stroke-width="5"/>
+  <path d="M96 87Q83 80 85 100Q86 114 100 116M167 87Q180 80 178 100Q176 113 163 116" fill="#fffdf6" stroke-width="4"/>
+  <path d="M107 96Q119 91 123 96M141 96Q154 91 158 97" stroke-width="4"/>
+  <path d="M115 97L116 101M150 97L151 101" stroke-width="5"/>
+  <path d="M133 98L130 118 135 119M120 128Q133 136 144 127" stroke-width="3.5"/>
+  <path d="M101 87Q113 83 123 87M143 87Q155 83 162 89" stroke-width="4"/>
+  <path d="M95 76Q108 64 121 49M143 48Q158 58 167 56" stroke="#333" stroke-width="3"/>
+</g>
+</svg>

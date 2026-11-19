@@ -1,104 +1,211 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#191718">
-<meta name="description" content="Jayesh Jadhav — experimental physicist at IIT Bombay. Quantum hardware, nanofabrication, thin-film optics and high-pressure spectroscopy.">
-<meta property="og:title" content="Jayesh Jadhav | Experimental Physicist">
-<meta property="og:description" content="A look at what happens between materials, devices and physics.">
-<title>Jayesh Jadhav — Experimental Physicist</title>
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jayesh Jadhav, experimental physicist and Junior Research Fellow at IIT Bombay. Research in quantum hardware, nanofabrication, thin-film optics and spectroscopy.">
+  <meta property="og:title" content="Jayesh Jadhav | Experimental Physicist">
+  <meta property="og:description" content="Research in quantum hardware, thin films and materials under pressure.">
+  <meta property="og:type" content="website">
+  <title>Jayesh Jadhav | Experimental Physicist</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#about">Skip to content</a>
-<header class="floating-nav" aria-label="Site navigation">
-  <a class="nav-brand" href="#top" aria-label="Jayesh, home">Jayesh<span class="brand-punct">.</span></a>
-  <button class="theme-button" id="theme-button" type="button" aria-label="Toggle background contrast" title="Change contrast">☼</button>
-  <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="floating-menu" type="button" aria-label="Open menu"><span>•••</span></button>
-  <nav class="menu-panel" id="floating-menu" hidden>
-   <a href="#about">01 / About</a><a href="#skills">02 / Skills</a><a href="#projects">03 / Projects</a><a href="#experience">04 / Experience</a><a href="#contact">05 / Contact</a>
-   <a href="assets/Jayesh_Jadhav_Resume.pdf" download>Download résumé ↗</a>
-  </nav>
-</header>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Jayesh Jadhav, home"><span class="brand-mark" aria-hidden="true">✦</span> Jayesh Jadhav</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#projects">Research</a>
+        <a href="#about">About</a>
+        <a href="#skills">Methods</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-resume" href="assets/Jayesh_Jadhav_Resume.pdf" download>Résumé <span aria-hidden="true">↓</span></a>
+        <button class="icon-button theme-button" id="theme-button" type="button" aria-label="Dark theme" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true"></span>
+        </button>
+        <button class="icon-button menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="floating-menu" type="button">
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" id="floating-menu" aria-label="Main navigation" hidden>
+        <a href="#projects">Research</a>
+        <a href="#about">About</a>
+        <a href="#skills">Methods</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="assets/Jayesh_Jadhav_Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+      </nav>
+    </div>
+  </header>
 
-<main>
-<section class="hero" id="top" aria-labelledby="hero-title">
- <div class="code-back" aria-hidden="true"><div class="code-col">// materials.py<br>def prepare_surface(substrate):<br>&nbsp;&nbsp;return clean(substrate)<br><br>j = electrodeposit(indium)<br>interface = thinfilm('TiN')<br>frequency = 4.0e9<br><br># Quantum hardware<br>if signal_loss &lt; target:<br>&nbsp;&nbsp;integrate(chip, interposer)<br><br>ψ = H |0⟩<br>transmission = interference(n,k,d)</div><div class="code-col">from quantum import circuit<br>import numpy as np<br>class ThinFilm:<br>&nbsp;&nbsp;def __init__(self,n,k,d):<br>&nbsp;&nbsp;&nbsp;&nbsp;self.layers = [n,k,d]<br><br>def cpw_mode(Z0=50):<br>&nbsp;&nbsp;return solve(fields)<br><br># measurement ∙ laboratory<br>data = raman(pressure=10e9)<br>response = spectroscopy(data)<br>signal = probe(wafer)</div><div class="code-col"># fabrication / device integration<br>cleanroom.workflow(<br>&nbsp;&nbsp;photoresist='AZ',<br>&nbsp;&nbsp;etch='dry',<br>&nbsp;&nbsp;metallization='sputter'<br>)<br>for step in wafer_process:<br>&nbsp;&nbsp;measure(step)<br><br>J_sc = q * integrate(flux)<br>Q_i = omega*L/R<br>return material_response</div></div>
- <div class="hero-center">
-  <h1 id="hero-title"><span class="hero-line"><span class="terminal-bracket" aria-hidden="true">&lt;</span>EXPERIMENTAL</span><span class="hero-line hero-line--second">PHYSICIST<span class="terminal-bracket terminal-bracket--end" aria-hidden="true">/&gt;</span></span></h1>
-  <div class="portrait hero-portrait" aria-label="Symbolic illustrated portrait of a researcher"><img src="assets/avatar.svg" alt="Illustrated researcher in dark clothing; symbolic artwork, not a photographic likeness" width="260" height="470"></div>
- </div>
- <div class="hero-footer"><span>© <span class="year">2026</span></span><span class="hero-note">{{ QUANTUM HARDWARE &amp; SMALL STRUCTURES }}</span></div>
- <a href="#about" class="down-cue" aria-label="Scroll to introduction">↓</a>
-</section>
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow">Junior Research Fellow · IIT Bombay</p>
+        <h1 id="hero-title">Experimental <em>physicist.</em></h1>
+        <p class="hero-lede">I’m Jayesh. I study how materials and interfaces shape the way devices work, from thin-film solar cells to superconducting quantum circuits.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="button button-primary">Explore my research <span aria-hidden="true">↘</span></a>
+          <a href="#about" class="text-link">About me <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <div class="hero-image-frame">
+          <img src="assets/hero-chip.webp" alt="Conceptual close-up of a quantum device with gold bond wires" width="1199" height="1312" fetchpriority="high">
+        </div>
+        <figcaption><span>Quantum device · Concept image</span><span>Mumbai, India</span></figcaption>
+      </figure>
+    </section>
 
-<section class="intro section" id="about">
- <div class="intro-inner">
-  <div class="intro-left reveal"><p class="tiny-label">INTRODUCTION / 01</p><h2>Hi, I'm<br>Jayesh.</h2><h3>Experimental Physicist<br>&amp; Junior Research Fellow.</h3><div class="intro-affiliation">Currently at<br><strong>IIT Bombay · Mumbai</strong></div></div>
-  <div class="portrait intro-portrait reveal"><img src="assets/avatar.svg" alt="Original illustration representing Jayesh, not a likeness" width="260" height="470"></div>
-  <div class="intro-right reveal"><p>I work at the intersection of <strong>materials and quantum hardware</strong>—making tiny structures, studying interfaces, and asking why a device behaves the way it does.</p><p class="muted-small">I grew up near hills in a village, and I still like finding reasons to get outside.</p><a href="#projects" class="white-button">Explore research <span>↗</span></a></div>
- </div>
- <div class="interest-line"><span>INTERESTS</span><span>Fabrication</span><span>Microwaves</span><span>Photography</span><span>Trekking</span></div>
-</section>
+    <section class="research section" id="projects" aria-labelledby="research-title">
+      <div class="shell">
+        <div class="section-heading">
+          <div><p class="eyebrow">Research</p><h2 id="research-title">Selected <em>work.</em></h2></div>
+          <a class="text-link" href="https://github.com/jayeshofphysics" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <button class="project-trigger" type="button" data-project="indium" aria-haspopup="dialog" aria-controls="project-dialog" aria-labelledby="indium-title">
+              <span class="project-image"><img src="assets/indium.webp" alt="" width="1400" height="788" loading="lazy"></span>
+              <span class="project-meta"><span class="eyebrow">Quantum hardware</span><span class="project-name" id="indium-title">Indium flip-chip interconnects</span><span class="project-arrow" aria-hidden="true">↗</span></span>
+            </button>
+          </article>
+          <article class="project-card">
+            <button class="project-trigger" type="button" data-project="cpw" aria-haspopup="dialog" aria-controls="project-dialog" aria-labelledby="cpw-title">
+              <span class="project-image"><img src="assets/cpw.webp" alt="" width="1200" height="800" loading="lazy"></span>
+              <span class="project-meta"><span class="eyebrow">Superconducting circuits</span><span class="project-name" id="cpw-title">Microwave waveguide design</span><span class="project-arrow" aria-hidden="true">↗</span></span>
+            </button>
+          </article>
+          <article class="project-card">
+            <button class="project-trigger" type="button" data-project="optics" aria-haspopup="dialog" aria-controls="project-dialog" aria-labelledby="optics-title">
+              <span class="project-image"><img src="assets/optics.webp" alt="" width="1400" height="933" loading="lazy"></span>
+              <span class="project-meta"><span class="eyebrow">Tandem solar cells</span><span class="project-name" id="optics-title">Transparent thin-film electrodes</span><span class="project-arrow" aria-hidden="true">↗</span></span>
+            </button>
+          </article>
+          <article class="project-card">
+            <button class="project-trigger" type="button" data-project="raman" aria-haspopup="dialog" aria-controls="project-dialog" aria-labelledby="raman-title">
+              <span class="project-image"><img src="assets/raman.svg" alt="" width="1200" height="880" loading="lazy"></span>
+              <span class="project-meta"><span class="eyebrow">High-pressure spectroscopy</span><span class="project-name" id="raman-title">Raman spectroscopy and XRD</span><span class="project-arrow" aria-hidden="true">↗</span></span>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section class="skills section" id="skills">
- <div class="section-row reveal"><div><span class="tiny-label">TOOLS &amp; METHODS / 02</span><h2>Tech Stack.</h2></div><p>Things I use to turn a question<br>into an experiment.</p></div>
- <div class="skill-grid">
-  <article class="skill-column reveal"><div class="skill-rule"></div><h3>Fabrication<br>&amp; Integration</h3><p>Making and connecting devices</p><div class="chips"><span>Sputtering</span><span>Optical lithography</span><span>Indium plating</span><span>Wet / dry etching</span><span>Flip-chip bonding</span><span>Thin films</span></div></article>
-  <article class="skill-column reveal"><div class="skill-rule"></div><h3>Modelling<br>&amp; Simulation</h3><p>Solving the physics before testing it</p><div class="chips"><span>Python</span><span>HFSS</span><span>Setfos</span><span>CPW design</span><span>Multilayer optics</span><span>Data analysis</span></div></article>
-  <article class="skill-column reveal"><div class="skill-rule"></div><h3>Characterisation<br>&amp; Spectroscopy</h3><p>Measuring what actually happened</p><div class="chips"><span>Raman</span><span>Synchrotron XRD</span><span>UV–Vis–NIR</span><span>4-point probe</span><span>Profilometry</span><span>Diamond-anvil cell</span></div></article>
- </div>
-</section>
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div class="about-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">Hello, I’m <em>Jayesh.</em></h2>
+        </div>
+        <div class="about-copy">
+          <p>I’m an experimental physicist and Junior Research Fellow at IIT Bombay. My current work focuses on making small indium interconnects that join chips for quantum devices.</p>
+          <p>My research has also taken me into thin-film optics and high-pressure spectroscopy. I grew up in a village near the hills, and outside the lab I enjoy trekking and photography.</p>
+          <a class="text-link" href="assets/Jayesh_Jadhav_Resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
 
-<section class="projects section" id="projects">
- <div class="section-row reveal"><div><span class="tiny-label">A SELECTION OF MY WORK / 03</span><h2>Featured<br>Projects</h2><p class="section-help">Research projects and experiments. Open a folder to see the work.</p></div><a href="https://github.com/jayeshofphysics" target="_blank" rel="noopener noreferrer" class="small-external">GitHub ↗</a></div>
- <div class="folder-grid">
-   <button class="folder-item reveal" type="button" data-project="indium" aria-label="Open indium flip-chip research"><span class="folder-stack"><span class="folder-file file-a"></span><span class="folder-file file-b"></span><span class="folder-face"><span class="folder-mini">03 / MICROFABRICATION</span><strong>Indium<br>Flip-Chip</strong><span class="folder-arrow">↗</span></span></span><span class="folder-meta">Quantum hardware <span>View project ↗</span></span></button>
-   <button class="folder-item reveal" type="button" data-project="cpw" aria-label="Open microwave and CPW research"><span class="folder-stack"><span class="folder-file file-a"></span><span class="folder-file file-b"></span><span class="folder-face"><span class="folder-mini">02 / MICROWAVE</span><strong>CPW<br>Design</strong><span class="folder-arrow">↗</span></span></span><span class="folder-meta">Superconducting circuits <span>View project ↗</span></span></button>
-   <button class="folder-item reveal" type="button" data-project="optics" aria-label="Open IZO Ag IZO optics research"><span class="folder-stack"><span class="folder-file file-a"></span><span class="folder-file file-b"></span><span class="folder-face"><span class="folder-mini">01 / PHOTOVOLTAICS</span><strong>Transparent<br>Electrodes</strong><span class="folder-arrow">↗</span></span></span><span class="folder-meta">Tandem solar cells <span>View project ↗</span></span></button>
-   <button class="folder-item reveal" type="button" data-project="raman" aria-label="Open high pressure spectroscopy project"><span class="folder-stack"><span class="folder-file file-a"></span><span class="folder-file file-b"></span><span class="folder-face"><span class="folder-mini">04 / SPECTROSCOPY</span><strong>High-Pressure<br>Raman</strong><span class="folder-arrow">↗</span></span></span><span class="folder-meta">BARC / INDUS-2 <span>View project ↗</span></span></button>
- </div>
-</section>
+    <section class="methods section" id="skills" aria-labelledby="methods-title">
+      <div class="shell">
+        <div class="section-heading"><div><p class="eyebrow">In the lab</p><h2 id="methods-title">Tools and <em>methods.</em></h2></div></div>
+        <div class="methods-grid">
+          <article class="method">
+            <h3>Fabrication &amp; integration</h3>
+            <ul class="tags"><li>Sputtering</li><li>Optical lithography</li><li>Indium plating</li><li>Wet / dry etching</li><li>Flip-chip bonding</li><li>Thin films</li></ul>
+          </article>
+          <article class="method">
+            <h3>Modelling &amp; simulation</h3>
+            <ul class="tags"><li>Python</li><li>HFSS</li><li>Setfos</li><li>CPW design</li><li>Multilayer optics</li><li>Data analysis</li></ul>
+          </article>
+          <article class="method">
+            <h3>Characterisation &amp; spectroscopy</h3>
+            <ul class="tags"><li>Raman</li><li>Synchrotron XRD</li><li>UV–Vis–NIR</li><li>4-point probe</li><li>Profilometry</li><li>Diamond-anvil cell</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section class="experience section" id="experience">
- <div class="section-row reveal"><div><span class="tiny-label">THE PATH SO FAR / 04</span><h2>Experience.</h2></div><p>Current work.<br>Back to the foundations.</p></div>
- <div class="timeline reveal">
-  <svg class="timeline-wave" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true"><path d="M65 50 C154 42 168 128 280 129 S415 54 515 52 S665 132 755 129 S900 45 980 51 S1110 110 1150 70"/><g><circle cx="65" cy="50" r="13"/><circle cx="280" cy="129" r="11"/><circle cx="515" cy="52" r="11"/><circle cx="755" cy="129" r="11"/><circle cx="980" cy="51" r="11"/></g></svg>
-  <div class="timeline-grid">
-   <article class="timeline-item"><span class="timeline-tag">CURRENT ROLE</span><small>2026 — PRESENT</small><h3>Junior Research<br>Fellow</h3><strong>IIT Bombay</strong><p>Indium flip-chip interconnects and 3D integration for quantum devices.</p></article>
-   <article class="timeline-item"><span class="timeline-tag">MSc RESEARCH</span><small>2025 — 2026</small><h3>MSc Thesis</h3><strong>NCPRE · IIT Bombay</strong><p>IZO/Ag/IZO multilayer transparent electrodes for tandem solar cells.</p></article>
-   <article class="timeline-item"><span class="timeline-tag">SUMMER TRAINING</span><small>2025</small><h3>High-Pressure<br>Raman</h3><strong>BARC · Mumbai</strong><p>Raman spectroscopy of Na₂Cu₂TeO₆ using a diamond-anvil cell.</p></article>
-   <article class="timeline-item"><span class="timeline-tag">RESEARCH VISIT</span><small>2025</small><h3>Synchrotron<br>XRD</h3><strong>RRCAT · INDUS-2</strong><p>High-pressure X-ray diffraction on Beamline 11.</p></article>
-   <article class="timeline-item"><span class="timeline-tag">EARLIER PROJECT</span><small>2022 — 2023</small><h3>EMI Shielding<br>Composite</h3><strong>Lovely Professional University</strong><p>PANI/Fe₃O₄ fabrication and materials characterization.</p></article>
-  </div>
- </div>
-</section>
+    <section class="experience section" id="experience" aria-labelledby="experience-title">
+      <div class="shell experience-grid">
+        <div class="experience-heading"><p class="eyebrow">Research timeline</p><h2 id="experience-title">Experience<span class="period">.</span></h2></div>
+        <ol class="timeline">
+          <li><p class="timeline-date">2026 – present</p><div><h3>Junior Research Fellow</h3><p class="timeline-place">IIT Bombay</p><p>Indium flip-chip interconnects and 3D integration for quantum devices.</p></div></li>
+          <li><p class="timeline-date">2025 – 2026</p><div><h3>MSc Thesis</h3><p class="timeline-place">NCPRE · IIT Bombay</p><p>IZO/Ag/IZO multilayer transparent electrodes for tandem solar cells.</p></div></li>
+          <li><p class="timeline-date">2025</p><div><h3>High-Pressure Raman</h3><p class="timeline-place">BARC · Mumbai</p><p>Raman spectroscopy of Na₂Cu₂TeO₆ using a diamond-anvil cell.</p></div></li>
+          <li><p class="timeline-date">2025</p><div><h3>Synchrotron XRD</h3><p class="timeline-place">RRCAT · INDUS-2</p><p>High-pressure X-ray diffraction on Beamline 11.</p></div></li>
+          <li><p class="timeline-date">2022 – 2023</p><div><h3>EMI Shielding Composite</h3><p class="timeline-place">Lovely Professional University</p><p>PANI/Fe₃O₄ fabrication and materials characterization.</p></div></li>
+        </ol>
+      </div>
+    </section>
 
-<section class="contact section" id="contact">
- <div class="contact-grid">
-  <div class="contact-intro reveal"><span class="tiny-label">HAVE SOMETHING IN MIND? / 05</span><h2>Let's talk.</h2><p>Research collaboration, quantum hardware, opportunities—or a good physics conversation.</p><div class="social-line"><a href="mailto:jayesh10042003@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/jayeshjadhaviitbphysics/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://www.instagram.com/jayesh10042003/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://github.com/jayeshofphysics" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div><a class="resume-inline" href="assets/Jayesh_Jadhav_Resume.pdf" download>Download résumé ↓</a></div>
-  <div class="contact-right reveal"><div class="contact-label">GET IN TOUCH</div><p class="contact-email">jayesh10042003@gmail.com</p><form id="contact-form"><label for="sender-name">Your name</label><input id="sender-name" name="name" autocomplete="name" placeholder="Name" required maxlength="90"><label for="sender-email">Your email</label><input id="sender-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required><label for="sender-message">Message</label><textarea id="sender-message" name="message" rows="3" maxlength="1200" placeholder="Tell me a little about it..." required></textarea><button class="send-button" type="submit">Open email draft <span aria-hidden="true">↗</span></button><p class="form-note">Opens your email app; nothing is submitted to a server.</p></form></div>
- </div>
-</section>
-</main>
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-grid">
+        <div class="contact-intro">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Let’s <em>talk.</em></h2>
+          <p>I’m open to research collaborations, new opportunities, and conversations about experimental physics.</p>
+          <div class="email-row">
+            <a id="contact-email" href="mailto:jayesh10042003@gmail.com">jayesh10042003@gmail.com</a>
+            <button class="icon-button copy-email" type="button" id="copy-email" aria-label="Copy email address" title="Copy email address"><span class="copy-icon" aria-hidden="true"></span></button>
+          </div>
+          <p id="copy-status" class="copy-status" role="status" aria-atomic="true"></p>
+          <nav class="social-nav" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/jayeshjadhaviitbphysics/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/jayeshofphysics" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://www.instagram.com/jayesh10042003/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+          </nav>
+        </div>
+        <form class="contact-form" id="contact-form" action="mailto:jayesh10042003@gmail.com" method="post" enctype="text/plain">
+          <div class="form-pair">
+            <label for="sender-name">Your name<input id="sender-name" name="name" autocomplete="name" required maxlength="90"></label>
+            <label for="sender-email">Email address<input id="sender-email" type="email" name="email" autocomplete="email" required></label>
+          </div>
+          <label for="sender-message">Message<textarea id="sender-message" name="message" rows="4" required maxlength="1200"></textarea></label>
+          <button class="button button-primary" type="submit">Open email draft <span aria-hidden="true">↗</span></button>
+          <p class="form-note">Opens a draft in your email app.</p>
+          <p id="contact-status" class="contact-status" role="status" aria-atomic="true"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-<footer id="footer">
- <div class="footer-top">
-  <div><strong>Jayesh.</strong><p>An Experimental Physicist<br>and a work in progress.</p></div>
-  <nav aria-label="Footer navigation"><span>EXPLORE</span><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
-  <div><span>GET IN TOUCH</span><a class="footer-email" href="mailto:jayesh10042003@gmail.com">jayesh10042003@gmail.com ↗</a><small>© <span class="year">2026</span> Jayesh Jadhav</small></div>
- </div>
- <div class="footer-titleline"><strong>See you around.</strong><a href="#top">Back to top ↑</a></div>
- <div class="crowd-scene" id="crowd-scene" aria-label="A stationary illustrated researcher surrounded by walking cartoon people"><div class="crowd-name" aria-hidden="true">JAYESH<span>.</span></div><div class="crowd-track crowd-track--rear" id="crowd-rear" aria-hidden="true"></div><div class="crowd-central"><img src="assets/avatar.svg" alt="Symbolic illustration of a researcher standing in the crowd, not a photographic likeness" width="260" height="470"></div><div class="crowd-track crowd-track--front" id="crowd-front" aria-hidden="true"></div><button type="button" class="crowd-toggle" id="crowd-toggle" aria-pressed="false" aria-label="Pause moving crowd">Ⅱ PAUSE CROWD</button></div>
- <div class="footer-end"><span>FINALLY, SOME TRAFFIC ON MY WEBSITE.</span><span>DESIGNED FOR CURIOSITY.</span></div>
-</footer>
+  <footer class="site-footer" id="footer">
+    <div class="shell footer-inner">
+      <div class="footer-main">
+        <div><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">✦</span> Jayesh Jadhav</a><p>Experimental physicist · Mumbai, India</p></div>
+        <nav aria-label="Footer navigation"><a href="#about">About</a><a href="#skills">Methods</a><a href="#projects">Research</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+        <a class="text-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+      <div class="field-panel">
+        <div class="field-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false"><span data-motion-label>Pause motion</span></button>
+      </div>
+      <div class="footer-bottom"><span>© <span class="year">2026</span> Jayesh Jadhav</span></div>
+    </div>
+  </footer>
 
-<dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title"><form method="dialog"><button class="dialog-close" type="submit" aria-label="Close project">×</button></form><div class="dialog-index" id="dialog-index">PROJECT / 01</div><h2 id="dialog-title"></h2><p class="dialog-intro" id="dialog-summary"></p><div class="dialog-body"><div class="dialog-visual" id="dialog-visual"></div><div class="dialog-text"><span class="tiny-label">THE BIG IDEA</span><p id="dialog-plain"></p><span class="tiny-label">UNDER THE HOOD</span><p id="dialog-technical"></p><span class="tiny-label">TOOLS &amp; METHODS</span><div class="dialog-tags" id="dialog-tags"></div></div></div></dialog>
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-summary">
+    <div class="dialog-inner">
+      <form method="dialog"><button class="icon-button dialog-close" type="submit" aria-label="Close research details" autofocus>×</button></form>
+      <p class="eyebrow" id="dialog-index"></p>
+      <h2 id="dialog-title"></h2>
+      <p class="dialog-summary" id="dialog-summary"></p>
+      <div class="dialog-body">
+        <div class="dialog-visual" id="dialog-visual"></div>
+        <div class="dialog-text">
+          <h3>Overview</h3><p id="dialog-plain"></p>
+          <h3>Experimental approach</h3><p id="dialog-technical"></p>
+          <div class="tags" id="dialog-tags" aria-label="Tools and methods"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

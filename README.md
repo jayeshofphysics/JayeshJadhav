@@ -1,35 +1,19 @@
-# Jayesh Jadhav — Video-reference Portfolio
+# Jayesh Jadhav | Experimental Physicist
 
-A second, independent portfolio for an experimental physicist, built in the style of the shared Aswin portfolio video.
-
-## Design
-
-- Very dark editorial layout with compact floating navigation.
-- Code-textured full-screen hero and oversized experimental-physicist heading.
-- Three-column introduction, tech stack, stacked folder project cards, and curved research timeline.
-- Accessible project detail dialogs and simple contact mailto draft.
-- Black-and-white illustrated crowd footer, with stationary central researcher and separate animated rows.
-
-The central illustration is an **original symbolic character**, **not an actual photograph or likeness** of Jayesh. Imagery and Raman chart are illustrative, not experimental measurements. The video is a visual reference; the source implementation and artwork are original.
-
-## Files
-
-- `index.html` — page markup
-- `styles.css` — responsive design and animations
-- `script.js` — navigation, project dialogs, form draft, and crowd animation
-- `assets/` — illustration/visual assets and CV
+Research portfolio covering quantum hardware, thin-film optics, and high-pressure spectroscopy. The site includes four research case studies, a timeline, a downloadable résumé, and a contact form that opens an email draft in the visitor’s email app.
 
 ## Local preview
 
-Run `python -m http.server 8000` in the project root and visit `http://localhost:8000`.
+From the repository root, run `python -m http.server 8000` and open `http://localhost:8000`. The site uses static HTML, CSS, and JavaScript. It requires no build step.
 
-## GitHub Pages
+## Publishing
 
-Deploy from `main` branch, `/ (root)`, in Settings → Pages. This project intentionally does not modify `jayeshofphysics/JayeshJadhav`.
+GitHub Pages deploys the repository root from `main`.
 
-## Accessibility
+## Imagery
 
-- Keyboard accessible navigation, menu, cards, and dialogs.
-- Crowd pause/resume, offscreen pausing and document visibility pausing.
-- `prefers-reduced-motion` support.
-- Mobile and tablet responsive layouts.
+The quantum-device hero and research artwork are conceptual illustrations. The coplanar waveguide schematic shows the signal trace and ground-plane geometry. The Raman illustration does not contain experimental data.
+
+## Typography
+
+Geist, Instrument Serif, and IBM Plex Mono are served from `assets/fonts/`, alongside their SIL Open Font Licenses.

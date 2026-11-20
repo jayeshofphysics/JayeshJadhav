@@ -96,9 +96,13 @@
     paint();
   }
 
-  function goTo(next) {
+  function goTo(next, event) {
     const current = Math.round(position);
+    const previousDestination = Math.round(destination);
     destination = Math.max(current - 3, Math.min(current + 3, next));
+    if (event && Math.round(destination) !== previousDestination) {
+      window.portfolioSound?.play('deck-flip', event);
+    }
     if (reducedMotion.matches) {
       cancelAnimationFrame(animationFrame);
       animationFrame = 0;
@@ -110,8 +114,8 @@
     }
   }
 
-  function step(amount) {
-    goTo(Math.round(destination) + amount);
+  function step(amount, event) {
+    goTo(Math.round(destination) + amount, event);
   }
 
   function snap(direction) {
@@ -120,11 +124,11 @@
   }
 
   for (const [index, choice] of choices.entries()) {
-    choice.addEventListener('click', () => {
+    choice.addEventListener('click', event => {
       const current = Math.round(destination);
       const forward = modulo(index - current, choices.length);
       const offset = forward > choices.length / 2 ? forward - choices.length : forward;
-      goTo(current + offset);
+      goTo(current + offset, event);
     });
   }
 
@@ -134,7 +138,7 @@
     };
     if (event.key in keys) {
       event.preventDefault();
-      step(keys[event.key]);
+      step(keys[event.key], event.repeat ? undefined : event);
     } else if (event.key === 'Escape') {
       deck.blur();
     }
@@ -181,6 +185,7 @@
   function releasePointer(event) {
     if (!pointer || pointer.id !== event.pointerId) return;
     if (ignoreClick) {
+      if (event.type === 'pointerup') window.portfolioSound?.play('deck-flip', event);
       if (reducedMotion.matches) step(pointer.direction);
       else snap(pointer.direction);
     }
@@ -189,8 +194,8 @@
 
   deck.addEventListener('pointerup', releasePointer);
   deck.addEventListener('pointercancel', releasePointer);
-  deck.addEventListener('click', () => {
-    if (!ignoreClick) step(1);
+  deck.addEventListener('click', event => {
+    if (!ignoreClick) step(1, event);
     ignoreClick = false;
   });
   reducedMotion.addEventListener('change', () => goTo(Math.round(destination)));

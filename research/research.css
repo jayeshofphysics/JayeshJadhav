@@ -108,7 +108,7 @@
   margin-bottom: 36px;
   display: flex;
 }
-.freelance-page h2 {
+.freelance-page :where(main) h2 {
   letter-spacing: -0.05em;
   margin: 16px 0 0;
   font-size: clamp(36px, 4.6vw, 64px);

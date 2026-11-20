@@ -129,15 +129,18 @@
     let afterClose;
     const menuAnimations = [];
 
-    function closeMenu(onClosed) {
+    function closeMenu(event, onClosed) {
       if (!dialog.open || dialog.dataset.motion === 'closing') return;
       afterClose = onClosed;
       dialog.dataset.motion = 'closing';
       if (reducedMotion.matches) {
+        window.portfolioSound?.play('menu-close', event, { reduced: true });
         dialog.close();
         return;
       }
 
+      const dropDelay = 220;
+      const shrinkDelay = 1220;
       const bounds = dialog.getBoundingClientRect();
       const buttonBounds = trigger.getBoundingClientRect();
       const pieces = [...dialog.querySelectorAll('.nav-menu-piece')];
@@ -150,7 +153,7 @@
         menuAnimations.push(piece.animate([
           { transform: 'none' },
           { transform: `translate(${sideways}px, ${distance}px) rotate(${angle}deg)` }
-        ], { delay: 220 + position, duration: 700, fill: 'forwards', easing: 'cubic-bezier(.55,.055,.675,.19)' }));
+        ], { delay: dropDelay + position, duration: 700, fill: 'forwards', easing: 'cubic-bezier(.55,.055,.675,.19)' }));
         menuAnimations.push(piece.animate({ opacity: [1, 0] }, {
           delay: 760 + index * stagger, duration: 160, fill: 'forwards', easing: 'ease-in'
         }));
@@ -160,7 +163,7 @@
       const y = buttonBounds.top - bounds.top;
       const scaleX = buttonBounds.width / bounds.width;
       const scaleY = buttonBounds.height / bounds.height;
-      const shrinkTiming = { delay: 1220, duration: 460, fill: 'forwards', easing: 'cubic-bezier(.645,.045,.355,1)' };
+      const shrinkTiming = { delay: shrinkDelay, duration: 460, fill: 'forwards', easing: 'cubic-bezier(.645,.045,.355,1)' };
       const shrink = dialog.animate([
         { transform: 'none', transformOrigin: 'top right', opacity: 1 },
         { transform: `translate(${x}px, ${y}px) scale(${scaleX}, ${scaleY})`, transformOrigin: 'top right', opacity: 0 }
@@ -169,11 +172,13 @@
       if ('pseudoElement' in KeyframeEffect.prototype) {
         menuAnimations.push(dialog.animate({ opacity: [1, 0] }, { ...shrinkTiming, pseudoElement: '::backdrop' }));
       }
+      window.portfolioSound?.play('menu-close', event, { dropDelay, shrinkDelay });
       shrink.finished.then(() => dialog.close(), () => {});
     }
 
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', event => {
       if (dialog.open || dialog.dataset.motion === 'closing') return;
+      window.portfolioSound?.unlock(event);
       previousOverflow = document.body.style.overflow;
       dialog.dataset.motion = 'open';
       dialog.showModal();
@@ -181,10 +186,10 @@
       document.body.style.overflow = 'hidden';
       panel?.scrollTo(0, 0);
     });
-    closeButton?.addEventListener('click', () => closeMenu());
+    closeButton?.addEventListener('click', event => closeMenu(event));
     dialog.addEventListener('cancel', event => {
       event.preventDefault();
-      closeMenu();
+      closeMenu(event);
     });
     dialog.addEventListener('close', () => {
       for (const animation of menuAnimations) animation.cancel();
@@ -198,6 +203,11 @@
       action?.();
     });
     dialog.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu(event);
+        return;
+      }
       if (event.key !== 'Tab') return;
       const focusable = [...dialog.querySelectorAll('a[href],button:not([disabled])')];
       const first = focusable[0];
@@ -213,17 +223,17 @@
     dialog.addEventListener('click', event => {
       if (event.target === dialog) {
         const bounds = dialog.getBoundingClientRect();
-        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeMenu();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeMenu(event);
         return;
       }
       const link = event.target.closest('a[href]');
       if (!link || !onlyPrimaryClick(event) || (link.target && link.target !== '_self')) return;
       if (link.hasAttribute('download')) {
-        closeMenu();
+        closeMenu(event);
         return;
       }
       event.preventDefault();
-      closeMenu(() => {
+      closeMenu(event, () => {
         if (!scrollToSection(link.href)) location.assign(link.href);
       });
     });

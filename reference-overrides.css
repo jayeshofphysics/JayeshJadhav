@@ -11,16 +11,6 @@
   background: #111;
 }
 
-.nav-panel-socials {
-  flex-wrap: wrap;
-}
-
-.portfolio-sound-toggle {
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
 /* The opening line overlaps the portrait. Preserve contrast on small screens. */
 @media (max-width: 700px) {
   .hero-portrait-link img,

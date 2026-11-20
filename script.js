@@ -58,10 +58,7 @@
       folder.style.setProperty('--folder-lean', `${angle}deg`);
     });
     folder.addEventListener('pointerleave', () => folder.style.setProperty('--folder-lean', '0deg'));
-    folder.addEventListener('click', event => {
-      if (folder !== selectedFolder) window.portfolioSound?.play('project-open', event);
-      openStudy(folder);
-    });
+    folder.addEventListener('click', () => openStudy(folder));
   }
 
   panel.querySelector('.project-panel-toolbar button').addEventListener('click', closeStudy);
